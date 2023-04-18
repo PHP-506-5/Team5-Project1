@@ -22,12 +22,12 @@
 
 
 
-    function select_board_info_paging( &$param_arr ){
+    function select_trip_info_paging( &$param_arr ){
         $sql =
         " SELECT " 
-        ." board_no "
-        ." , board_title "
-        ." , board_writedate "
+        ." trip_no "
+        ." , trip_title "
+        ." , trip_date "
         ." FROM board_info "
         ." WHERE " 
         ." board_del_fg='0' "

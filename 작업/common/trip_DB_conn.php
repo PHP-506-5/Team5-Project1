@@ -21,7 +21,12 @@
     }
 
 
-
+    /*-------------------------------
+    페이징 넘버 가져오는 함수 작성
+    함수명 : select_trip_info_no
+    기능   : com이 0인 정보 모두 가져옴
+    리턴값 : int $result
+    ----------------------------------*/
     function select_trip_info_paging( &$param_arr ){
         $sql =
         " SELECT "

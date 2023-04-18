@@ -3,7 +3,7 @@
         $host     = "localhost"; //host
         $user     = "root"; //user
         $pass     = "root506"; //password
-        $db_name  = "board"; //db name
+        $db_name  = "trip"; //db name
         $charset  = "utf8mb4"; //charset
         $dns      = "mysql:host=".$host.";dbname=".$db_name.";charset=".$charset;
         $pdo_option   = array(

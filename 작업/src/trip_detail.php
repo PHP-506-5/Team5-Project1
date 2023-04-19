@@ -19,6 +19,7 @@ $result = detail_trip_info( $arr_get["trip_no"]);
     <div>
     <p><?php echo $result["trip_title"]?></p>
     <p> 도시 <?php echo $result["trip_city"]?></p>
+    <p> 비용 <?php echo $result["trip_price"]?></p>
     <p> 날짜 <?php echo $result["trip_date"]?></p>
     <p> 내용 <?php echo $result["trip_contents"]?></p>
 

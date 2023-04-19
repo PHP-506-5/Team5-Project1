@@ -260,6 +260,7 @@ function detail_trip_info(&$param_no){
         ." trip_title"
         ." ,trip_no"
         ." ,trip_city"
+        ." ,trip_price "
         ." ,trip_date"
         ." , trip_contents"
         ." FROM trip_info"

@@ -1,6 +1,6 @@
 <?php
-	define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
-	define( "URL_DB", SRC_ROOT."작업/common/trip_DB_conn.ybk.php" );
+	define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
+	define( "URL_DB", DOC_ROOT."작업/common/trip_DB_conn.ybk.php" );
 	include_once( URL_DB );
 	$http_method=$_SERVER["REQUEST_METHOD"];
 
@@ -59,12 +59,50 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>여행 정보</title>
+	<style>
+		#img{
+			background-image: url(eword.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			width:60%;
+			height:1000px;
+		}
+		#first{
+			display:flex;
+			flex-wrap:wrap;
+		}
+		#mainname{
+			font-size:50px;
+			text-align:center;
+			width:40%;
+			margin-top:230px;
+		}
+		#go{
+			font-size:30px;
+			border:1px solid blue;
+			padding:0;
+		}
+		#img2{
+			margin-top:-40px;
+		}
+	</style>
 </head>
 <body>
-	<div class="container">
-			<a href="trip_insert.php">일정 작성</a>
+	<div id=first>
+		<div id=img></div>
+		<div id=mainname>
+			To day Trip
+			<br>
+			<div class="container">
+			<a href="trip_insert.php" id="go">작성 시작하기</a>
 		</div>
-
+			<br>
+			<div id=img2><a href="#tag"><img src="비행기.png" alt=""></a></div>
+		</div>
+			
+		</div>
+	
+	
     <form method="POST" action="">
         <select name="current">
             <option value="0">전체</option>
@@ -93,7 +131,7 @@
 							<td><input type="checkbox"></td>
 							<td><a href="trip_detail.php?trip_no=<?php echo $recode["trip_no"] ?>"><?php echo $recode["trip_title"] ?></a></td>
 							<?php include_once( "gap_time.php" );
-								if(gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])<=0100){
+								if(gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])<=0100 && gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])>=0000){
 									?><td style="color:green;"><?php echo $recode["trip_date"]; ?></td>
 								<?php }else{?>
 							<td><?php echo $recode["trip_date"] ?></td>
@@ -102,6 +140,7 @@
 					}
 				}
 				?>
+				<a id="tag"></a>
 			</tbody>
 		</table>
 

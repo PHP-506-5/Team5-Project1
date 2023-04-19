@@ -1,10 +1,10 @@
 <?php
 define( "DOC_ROOT",$_SERVER["DOCUMENT_ROOT"]."/" );
-define( "URL_DB",DOC_ROOT."작업/common/trip_DB_conn_jin.php" );
+define( "URL_DB",DOC_ROOT."작업/common/trip_DB_conn.ybk.php" );
 include_once( URL_DB );
 
 $arr_get = $_GET;
-$result = detail_trip_info( $arr_get["trip_no"]);
+$result = select_trip_info_no($arr_get["trip_no"]);
 ?>
 
 <!DOCTYPE html>

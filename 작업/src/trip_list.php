@@ -78,6 +78,7 @@
 			<thead>
 				<tr>
 					<th>번호</th>
+					<th>실행여부</th>	
 					<th>제목</th>
 					<th>할 시간</th>
 				</tr>
@@ -89,15 +90,17 @@
 				?>
 						<tr>
 							<td><?php echo $recode["trip_no"] ?></td>
+							<td><input type="checkbox"></td>
 							<td><a href="trip_detail.php?trip_no=<?php echo $recode["trip_no"] ?>"><?php echo $recode["trip_title"] ?></a></td>
-							<?php include_once( "test.php" );
-								if(gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])>=10){
-									?><div style="color:black;"><?php echo $recode["trip_date"]; ?></div>
-								<?php }?>
+							<?php include_once( "gap_time.php" );
+								if(gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])<=0100){
+									?><td style="color:green;"><?php echo $recode["trip_date"]; ?></td>
+								<?php }else{?>
 							<td><?php echo $recode["trip_date"] ?></td>
 						</tr> 
 				<?php
 					}
+				}
 				?>
 			</tbody>
 		</table>

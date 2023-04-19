@@ -78,7 +78,7 @@ else{
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"] ?>">
         </div>
         <div class="button">
-            <button type="submit" class="btn">수정</button>
+            <button type="submit" class="">수정</button>
             <button type="button"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="">취소</a></button>
 		</div>
     </form>

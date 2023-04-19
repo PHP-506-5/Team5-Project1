@@ -83,7 +83,7 @@ else{
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>
     </main>
-    <!-- 푸터 -->
+    <!-- 푸 터 -->
     <footer class="page-footer">
         <div class="content">
         <!-- <p>Footer</p> -->

@@ -1,8 +1,7 @@
 <?php
-	define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
-	// define( "URL_DB", SRC_ROOT."작업/common/trip_DB_conn_jyp.php" );
-    define( "URL_DB", SRC_ROOT."작업/common/trip_DB_conn.ybk.php" );
-	include_once( URL_DB );
+define("SRC_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
+define("URL_DB", SRC_ROOT . "작업/common/trip_DB_conn.ybk.php");
+include_once(URL_DB);
 
     $http_method = $_SERVER["REQUEST_METHOD"];
 
@@ -19,18 +18,18 @@ if( $http_method === "GET" )
 else{
     $arr_post=$_POST;
     $arr_info = array(
-            "trip_no" => $arr_post["trip_no"]
-            ,"trip_title" => $arr_post["trip_title"]
-            ,"trip_city" => $arr_post["trip_city"]
-            ,"trip_date" => $arr_post["trip_date"]
-            ,"trip_price" => $arr_post["trip_price"]
-            ,"trip_contents" => $arr_post["trip_contents"]
-        );
-    
+        "trip_no" => $arr_post["trip_no"],
+        "trip_title" => $arr_post["trip_title"],
+        "trip_city" => $arr_post["trip_city"],
+        "trip_date" => $arr_post["trip_date"],
+        "trip_price" => $arr_post["trip_price"],
+        "trip_contents" => $arr_post["trip_contents"]
+    );
+
     // update
     $result_cnt = update_trip_info_no( $arr_info );
 
-    header("Location: trip_detail.php?trip_no=".$arr_post["trip_no"] );
+    header("Location: trip_detail.php?trip_no=" . $arr_post["trip_no"]);
     exit();
 }
 ?>
@@ -81,6 +80,7 @@ else{
             <button type="submit" class="">수정</button>
             <button type="button"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="">취소</a></button>
 		</div>
+            <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>
     </main>
     <!-- 푸터 -->

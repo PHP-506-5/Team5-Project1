@@ -24,7 +24,7 @@
     /*-------------------------------
     페이징 넘버 가져오는 함수 작성
     함수명 : select_trip_info_paging_all
-    기능   : com이 0인 정보 모두 가져옴
+    기능   : 정보 모두 가져오면서 com여부 확인
     리턴값 : int $result
     ----------------------------------*/
     function select_trip_info_paging_all( &$param_arr ){
@@ -105,48 +105,47 @@
 
 // ---------------------------------
 // 함수명	: select_trip_info_no
-// 기능		: 게시판 특정 게시글 정보 검색
+// 기능		: 특정 정보 확인
 // 파라미터	: INT		&$param_no
 // 리턴값	: Array		$result
 // ---------------------------------
-function select_trip_info_no( &$param_no)
+function select_trip_info_no($param_no)
 {
-    $sql=
-    " SELECT "
-    ." trip_no "
-    ." ,trip_city "
-    ." ,trip_title "
-    ." ,trip_date "
-    ." ,trip_price "
-    ." ,trip_contents "
-    ." FROM "
-    ."  trip_info "
-    ." WHERE " 
-    ."  trip_no = :trip_no "
+    $sql =
+        "SELECT "
+        . " trip_no "
+        . " ,trip_city "
+        . " ,trip_title "
+        . " ,trip_date "
+        . " ,trip_price "
+        . " ,trip_contents "
+        . " FROM "
+        . " trip_info "
+        . " WHERE "
+        . " trip_no = :trip_no "
     ;
 
-    $arr_prepare = 
-    array(
-        ":trip_no"    => $param_no
+    $arr_prepare = array(
+        ":trip_no" => $param_no
     );
 
     $conn = null;
-    try{
-        db_conn( $conn );
-        $stmt = $conn-> prepare( $sql );
-        $stmt -> execute( $arr_prepare );
+    try {
+        db_conn($conn);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($arr_prepare);
         $result = $stmt->fetchAll();
-    }
-    catch( Exception $e)
-    {
+    } catch (Exception $e) {
         return $e->getMessage();
-    }
-    finally
-    {
-        $conn=null;
+    } finally {
+        $conn = null;
     }
     return $result[0];
-}  
+}
+
+// $arr = array("trip_no" => 2);
+// $resultt = select_trip_info_no($arr["trip_no"]);
+// print_r($resultt);
 
 //함수명    : update_trip_info_no
 //기능      : 게시판 특정 게시글 정보 수정
@@ -260,6 +259,7 @@ function detail_trip_info(&$param_no){
         ." trip_title"
         ." ,trip_no"
         ." ,trip_city"
+        ." ,trip_price "
         ." ,trip_date"
         ." , trip_contents"
         ." FROM trip_info"

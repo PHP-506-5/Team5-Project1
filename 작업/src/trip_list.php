@@ -4,9 +4,6 @@
 	include_once( URL_DB );
 	$http_method=$_SERVER["REQUEST_METHOD"];
 
-	$post=$_POST;
-	$trip_com=$post["current"];
-
 	if( array_key_exists( "page_num", $_GET ) )
 	{
 		$page_num = $_GET["page_num"];
@@ -17,22 +14,38 @@
 	}
 
 	$limit_num = 4;
-	$result_cnt = select_trip_info_cnt();
-
-	$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
 
 	$offset = ( $page_num * $limit_num ) - $limit_num;
 
-	if(isset($_POST["current"])){
-        $arr_prepare = array(
-                        "limit_num" => $limit_num
-                        ,"offset" => $offset
-                        ,"trip_com" => $trip_com
-        );
-    }
+	$post=isset($_POST["current"])?$_POST["current"] : false;
+		if($post=='0'){
+			$arr_prepare = array(
+				"limit_num" => $limit_num
+				,"offset" => $offset
+			);
+			$result_cnt = select_trip_info_cnt($arr_prepare);
+			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
 
-	// 페이징용 데이터 검색
-	$result_paging = select_trip_info_paging( $arr_prepare );
+		}else if($post=='1'){
+			$arr_prepare = array(
+				"limit_num" => $limit_num
+				,"offset" => $offset
+				,"trip_com" => 1
+			);
+			$result_cnt = select_trip_info_cnt($arr_prepare);
+			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );	
+			
+		}else{
+			$arr_prepare = array(
+				"limit_num" => $limit_num
+				,"offset" => $offset
+				,"trip_com" => 2
+			);
+			$result_cnt = select_trip_info_cnt($arr_prepare);
+			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
+		}
+
+	$result_paging = select_trip_info_paging_all( $arr_prepare );
 
 	$prev_page_num = $page_num - 1 > 0 ? $page_num - 1 : 1;
 	$next_page_num = $page_num + 1 > $max_page_num ? $max_page_num : $page_num + 1;
@@ -77,6 +90,10 @@
 						<tr>
 							<td><?php echo $recode["trip_no"] ?></td>
 							<td><a href="trip_detail.php?trip_no=<?php echo $recode["trip_no"] ?>"><?php echo $recode["trip_title"] ?></a></td>
+							<?php include_once( "test.php" );
+								if(gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])>=10){
+									?><div style="color:black;"><?php echo $recode["trip_date"]; ?></div>
+								<?php }?>
 							<td><?php echo $recode["trip_date"] ?></td>
 						</tr> 
 				<?php

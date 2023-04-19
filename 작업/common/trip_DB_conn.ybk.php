@@ -23,11 +23,11 @@
 
     /*-------------------------------
     페이징 넘버 가져오는 함수 작성
-    함수명 : select_trip_info_no
+    함수명 : select_trip_info_paging_all
     기능   : com이 0인 정보 모두 가져옴
     리턴값 : int $result
     ----------------------------------*/
-    function select_trip_info_paging( &$param_arr ){
+    function select_trip_info_paging_all( &$param_arr ){
         $sql =
         " SELECT "
         ." trip_no "
@@ -35,20 +35,25 @@
         ." , trip_title "
         ." , trip_contents "
         ." , trip_date "
-        ." FROM trip_info "
-        ." WHERE " 
-        ." trip_com='0' "
-        ." ORDER  BY " 
+        ." FROM trip_info ";
+        
+        if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
+            $sql .= " WHERE trip_com=:trip_com ";
+        }
+        
+        $sql .= " ORDER  BY " 
         ." trip_no ASC "
         ." LIMIT :limit_num OFFSET :offset "
         ;      
         
-    $arr_prepare = array(
-                    ":limit_num"  => $param_arr["limit_num"]
-                    ,":offset"    => $param_arr["offset"]
-                    ,":trip_com"  => $param_arr["trip_com"]
-                    );    
-
+        $arr_prepare = array(
+            ":limit_num"  => $param_arr["limit_num"]
+            ,":offset"    => $param_arr["offset"]
+        );    
+        if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
+            $arr_prepare[":trip_com"] = $param_arr["trip_com"];
+        }
+    
         $conn = null;
         try{
             db_conn( $conn );
@@ -62,23 +67,28 @@
             $conn=null;
         }
         return $result;
-
     }
+    
 
-
-    function select_trip_info_cnt(){
+    function select_trip_info_cnt(&$param_arr){
         $sql =
             " SELECT "
             ."       count(*) cnt "
             ." FROM "
             ."       trip_info "
-            ." WHERE "
-            ." trip_com='0' "
             ;
-
+    
+            if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
+                $sql .= " WHERE trip_com=:trip_com ";
+            }
             $arr_prepare=array();
+            if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
+                $arr_prepare[":trip_com"] = $param_arr["trip_com"];
+            }
+    
+            
             $conn=null;
-
+    
             try{
                 db_conn( $conn );
                 $stmt = $conn->prepare( $sql );
@@ -92,4 +102,5 @@
             }
             return $result;
     }
+    
     ?>

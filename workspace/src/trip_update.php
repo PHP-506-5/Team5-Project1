@@ -1,6 +1,9 @@
 <?php
-define("SRC_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
-define("URL_DB", SRC_ROOT . "작업/common/trip_DB_conn.php");
+define("DOC_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
+define("URL_DB", DOC_ROOT . "workspace/common/trip_DB_conn.php");
+define("URL_SLIDE", DOC_ROOT . "/workspace/src/trip_slide.php" );
+define("URL_HEADER", DOC_ROOT . "/workspace/src/trip_header.php" );
+define("URL_FOOTER", DOC_ROOT . "/workspace/src/trip_footer.php" );
 include_once(URL_DB);
 
     $http_method = $_SERVER["REQUEST_METHOD"];
@@ -41,25 +44,31 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trip_update</title>
+    <link rel="stylesheet" href="../css/update.css">
+    <link rel="stylesheet" href="../css/com_header.css">
+    <link rel="stylesheet" href="../css/com_slide.css">
+    <link rel="stylesheet" href="../css/com_footer.css">
 </head>
 <body>
     <div class="grid">
     <!-- 헤더     -->
     <header class="page-header">
-        <div class="content">
-        <!-- <p>헤더</p> -->
+        <div class="header">
+        <?php include_once( URL_HEADER ) ?>
+        <p>헤더</p>
         </div>
     </header>
     <!-- 왼쪽이미지 슬라이드 -->
     <aside class="page-leftbar">
-        <div class="content">
-        <!-- <p>슬라이드</p> -->
+        <div class="leftbar">
+        <?php include_once( URL_SLIDE ) ?>
+        <p>슬라이드</p>
         </div>
     </aside>
     <!-- 게시판 -->
     <main class="page-main">
     <form method="post" action="trip_update.php">
-        <div class="container">
+        <div class="aaa">
             <label for="title"> 제목 </label>
             <input type="text" name="trip_title" id="title" required value="<?php echo $result_info["trip_title"] ?>">   
             <br>
@@ -85,8 +94,9 @@ else{
     </main>
     <!-- 푸 터 -->
     <footer class="page-footer">
-        <div class="content">
-        <!-- <p>Footer</p> -->
+        <div class="footer">
+        <?php include_once( URL_FOOTER ) ?>
+        <p>푸터</p>
         </div>
     </footer>
 </div>

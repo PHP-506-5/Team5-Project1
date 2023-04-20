@@ -1,0 +1,28 @@
+footer{
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    color: white;
+    background-color: #001d3d;
+}
+
+.information{
+    list-style-type: none;
+    /* line-height: 50px; */
+}
+.team_members{
+    list-style-type: none;
+    /* line-height: 20px; */
+}
+#copyright{
+    width: 1200px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    background-color: #020f1d;
+}
+#copyright>p{
+    padding: 15px;
+    margin: 0;
+}

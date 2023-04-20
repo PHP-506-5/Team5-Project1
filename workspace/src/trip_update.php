@@ -45,12 +45,12 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trip_update</title>
     <link rel="stylesheet" href="../css/update.css">
-    <link rel="stylesheet" href="../css/com_header.css">
+    <!-- <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_slide.css">
-    <link rel="stylesheet" href="../css/com_footer.css">
+    <link rel="stylesheet" href="../css/com_footer.css"> -->
 </head>
 <body>
-    <div class="grid">
+    <div class="parent">
     <!-- 헤더     -->
     <header class="page-header">
         <div class="header">

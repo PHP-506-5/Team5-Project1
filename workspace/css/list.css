@@ -1,9 +1,10 @@
+
 #img{
     background-image: url("../image/img01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width:60%;
-    height:1000px;
+    height:1050px;
 }
 #first{
     display:flex;
@@ -17,18 +18,50 @@
 }
 #go{
     font-size:30px;
-    border:1px solid blue;
+    color: white;
+    background-color: blue;
     padding:0;
 }
 #img2{
     margin-top:-40px;
 }
-
+#listpage{
+    padding: 200px;
+    height: 800px;
+}
+form{
+    padding-top:100px;
+}
 table{
     border: 1px solid black;
     margin: 0 auto;
+    width: 80%;
+    height: 700px;
+    text-align:center;
 }
-form{
-    margin: 0 auto;
+tbody{
+    text-align:center;
+    background-color: white;
 
+}
+td{
+    width: 200px;
+    height: 50px;
+}
+#choose{
+    text-align:center;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#th1,#th2,#td1,#td2{
+    width: 30px;
+}
+#check_1:checked + label {
+    color: red;
+}
+
+#check_1 + label {
+    cursor: pointer;
 }

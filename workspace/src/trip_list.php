@@ -13,7 +13,7 @@
 		$page_num = 1;
 	}
 
-	$limit_num = 4;
+	$limit_num = 5;
 
 	$offset = ( $page_num * $limit_num ) - $limit_num;
 
@@ -77,7 +77,7 @@
 			
 		</div>
 	
-	
+<div id="listpage">
     <form method="POST" action="">
         <select name="current">
             <option value="0">전체</option>
@@ -87,40 +87,44 @@
         <input type="submit" value="선택">
     </form>
 
-		<table>
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>실행여부</th>	
-					<th>제목</th>
-					<th>할 시간</th>
-				</tr>
-			</thead>
-			<tbody>
+			<table>
+		<thead>
+			<tr>
+			<th id="th1">번호</th>
+			<th id="th2">실행여부</th>
+			<th>제목</th>
+			<th>할 시간</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($result_paging as $recode) { ?>
+			<tr>
+				<td id="td1"><?php echo $recode["trip_no"] ?></td>
+				<td id="td2">
+					<input type="checkbox" id="check_<?php echo $recode["trip_no"] ?>">
+					<label for="check_<?php echo $recode["trip_no"] ?>"></label>
+				</td>
+				<td>
+					<a href="trip_detail.php?trip_no=<?php echo $recode["trip_no"] ?>&page_num=<?php echo $page_num ?>">
+						<?php echo $recode["trip_title"] ?>
+					</a>
+				</td>
 				<?php
-					foreach( $result_paging as $recode )
-					{
+				include_once("gap_time.php");
+				if (gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) <= 0100 && gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) >= 0000) {
 				?>
-						<tr>
-							<td><?php echo $recode["trip_no"] ?></td>
-							<td><input type="checkbox"></td>
-							<td><a href="trip_detail.php?trip_no=<?php echo $recode["trip_no"] ?>"><?php echo $recode["trip_title"] ?></a></td>
-							<?php include_once( "gap_time.php" );
-								if(gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])<=0100 && gap_time(date("Y-m-d H:i:s"),$recode["trip_date"])>=0000){
-									?><td style="color:green;"><?php echo $recode["trip_date"]; ?></td>
-								<?php }else{?>
-							<td><?php echo $recode["trip_date"] ?></td>
-						</tr> 
-				<?php
-					}
-				}
-				?>
-				<a id="tag"></a>
-			</tbody>
+					<td style="color:green;"><?php echo $recode["trip_date"]; ?></td>
+				<?php } else { ?>
+					<td><?php echo $recode["trip_date"] ?></td>
+				<?php } ?>
+			</tr>
+		<?php } ?>
+		</tbody>
 		</table>
 
+
 		<!-- 페이징 번호 -->
-		<div>
+		<div id="choose">
 			<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>" class="button_a">◀</a>
 		<?php
 			for( $i = 1; $i <= $max_page_num; $i++ )
@@ -132,6 +136,7 @@
 		?>
 			<a href="trip_list.php?page_num=<?php echo $next_page_num ?>" class="button_a">▶</a>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

@@ -69,7 +69,7 @@ a{
     /* text-decoration: line-through; */
     background-color: white;
     border-radius: 20px 20px 20px 20px;
-    width: 240px;
+    width: 300px;
     height: 50px;
     margin-left: 150px;
 }
@@ -82,10 +82,13 @@ a{
 #div2,#div4{
     background-color: white;
     border-radius: 20px 20px 20px 20px;
-    width: 240px;
+    width: 300px;
     height: 50px;
     line-height: 50px;
     margin-left: 150px;
+}
+#div4{
+    width: 240px;;
 }
 #th1,#th2,#td1,#td2{
     width: 100px;
@@ -115,4 +118,8 @@ form{
 }
 th,#div1,#div2,#div4{
     margin: 0 auto;
+    padding: 0 auto;
+}
+#choosebut>a{
+    margin-left: 10px;
 }

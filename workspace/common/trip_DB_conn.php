@@ -109,7 +109,7 @@
 // 파라미터	: INT		&$param_no
 // 리턴값	: Array		$result
 // ---------------------------------
-function select_trip_info_no($param_no)
+function select_trip_info_no(&$param_no)
 {
     $sql =
         "SELECT "
@@ -201,6 +201,7 @@ function update_trip_info_no( &$param_arr )
 // 기능		: 작성을 할수 있게 해준다.
 // 파라미터	: array   &$param_arr
 // 리턴값	: string  $result_cnt
+// 제작     : 김진아
 // ---------------------------------
 function insert_trip_info(&$param_arr){
     $sql =
@@ -248,48 +249,12 @@ function insert_trip_info(&$param_arr){
 }
 
 // ---------------------------------
-// 함수명	: detail_trip_info
-// 기능		: 상세페이지를 볼 수 있게 해준다.
-// 파라미터	: int   &$param_no
-// 리턴값	: int   $result
-// ---------------------------------
-
-function detail_trip_info(&$param_no){
-    $sql = " SELECT "
-        ." trip_title"
-        ." ,trip_no"
-        ." ,trip_city"
-        ." ,trip_price "
-        ." ,trip_date"
-        ." , trip_contents"
-        ." FROM trip_info"
-        ." WHERE "
-        ." trip_no = :trip_no";
-
-    $arr_prepare = array( ":trip_no" => $param_no);
-
-    $conn=null;
-    try {
-        db_conn( $conn );
-        $stmt = $conn->prepare( $sql);
-        $stmt->execute($arr_prepare);
-        $result = $stmt->fetchAll();
-    } catch ( Exception $e) {
-        return $e->getmessage;
-    }
-    finally{
-        $conn = null;
-    }
-    return $result[0];
-}
-
-// ---------------------------------
 // 함수명	: detail_complete_trip_info
 // 기능		: 상세페이지에서 완료를 할 수 있게해준다
 // 파라미터	: int  	&$param_no
 // 리턴값	: int   $result_cnt
+// 개발     : 김진아
 // ---------------------------------
-
 function detail_complete_trip_info( &$param_no){
     $sql = " UPDATE "
         ." trip_info "
@@ -317,5 +282,37 @@ function detail_complete_trip_info( &$param_no){
         $conn = null;
     }
     return $result_cnt;
+}
+
+// ---------------------------------
+// 함수명    : trip_info_no_max
+// 기능      : 현재 리스트중에서 가장 큰 값을 구한다
+// 파라미터  : 없음
+// 리턴값    : array   $result
+// 제작      : 김진아
+// ---------------------------------
+function trip_info_no_max(){
+    $sql = " SELECT "
+        ." max(trip_no) max "
+        ." FROM "
+        ." trip_info ";
+
+    $arr_prepare = array();
+
+    $conn = null;
+
+    try {
+        db_conn( $conn );
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute($arr_prepare);
+        $result = $stmt->fetchall();
+    }
+    catch ( Exception $e) {
+        return $e->getMessage();
+    }
+    finally{
+        $conn = null;
+    }
+    return $result;
 }
     ?>

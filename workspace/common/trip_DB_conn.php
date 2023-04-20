@@ -26,6 +26,7 @@
     함수명 : select_trip_info_paging_all
     기능   : 정보 모두 가져오면서 com여부 확인
     리턴값 : int $result
+    제작자 : 김영범
     ----------------------------------*/
     function select_trip_info_paging_all( &$param_arr ){
         $sql =
@@ -69,7 +70,13 @@
         return $result;
     }
     
-
+    /*-------------------------------
+    특정 변수가 들어오면 그 변수 전체값 가져오는 함수
+    함수명 : select_trip_info_paging_cnt
+    기능   : 정보 모두 가져오면서 com여부 확인
+    리턴값 : int $result
+    제작자 : 김영범
+    ----------------------------------*/
     function select_trip_info_cnt(&$param_arr){
         $sql =
             " SELECT "
@@ -245,42 +252,6 @@ function insert_trip_info(&$param_arr){
         $conn = null;
     }
     return $result_cnt;
-}
-
-// ---------------------------------
-// 함수명	: detail_trip_info
-// 기능		: 상세페이지를 볼 수 있게 해준다.
-// 파라미터	: int   &$param_no
-// 리턴값	: int   $result
-// ---------------------------------
-
-function detail_trip_info(&$param_no){
-    $sql = " SELECT "
-        ." trip_title"
-        ." ,trip_no"
-        ." ,trip_city"
-        ." ,trip_price "
-        ." ,trip_date"
-        ." , trip_contents"
-        ." FROM trip_info"
-        ." WHERE "
-        ." trip_no = :trip_no";
-
-    $arr_prepare = array( ":trip_no" => $param_no);
-
-    $conn=null;
-    try {
-        db_conn( $conn );
-        $stmt = $conn->prepare( $sql);
-        $stmt->execute($arr_prepare);
-        $result = $stmt->fetchAll();
-    } catch ( Exception $e) {
-        return $e->getmessage;
-    }
-    finally{
-        $conn = null;
-    }
-    return $result[0];
 }
 
 // ---------------------------------

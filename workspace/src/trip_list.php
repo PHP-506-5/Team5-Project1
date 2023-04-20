@@ -58,6 +58,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<title>여행 정보</title>
 	<link rel="stylesheet" href="../css/list.css">
 	
@@ -77,7 +78,7 @@
 			
 		</div>
 	
-	
+<div id="listpage">
     <form method="POST" action="">
         <select name="current">
             <option value="0">전체</option>
@@ -87,7 +88,7 @@
         <input type="submit" value="선택">
     </form>
 
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -96,7 +97,7 @@
 					<th>할 시간</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="table-group-divider">
 				<?php
 					foreach( $result_paging as $recode )
 					{
@@ -120,7 +121,7 @@
 		</table>
 
 		<!-- 페이징 번호 -->
-		<div>
+		<div id="choose">
 			<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>" class="button_a">◀</a>
 		<?php
 			for( $i = 1; $i <= $max_page_num; $i++ )
@@ -132,6 +133,7 @@
 		?>
 			<a href="trip_list.php?page_num=<?php echo $next_page_num ?>" class="button_a">▶</a>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

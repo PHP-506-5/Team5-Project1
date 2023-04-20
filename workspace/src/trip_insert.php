@@ -1,6 +1,9 @@
 <?php
 define( "DOC_ROOT",$_SERVER["DOCUMENT_ROOT"]."/" );
 define( "URL_DB",DOC_ROOT."workspace/common/trip_DB_conn.php" );
+define( "URL_HEADER", DOC_ROOT."workspace/src/trip_header.php" );
+define( "URL_FOOTER", DOC_ROOT."workspace/src/trip_footer.php" );
+define( "URL_SLIDE", DOC_ROOT."workspace/src/trip_slide.php" );
 include_once( URL_DB );
 
 $http_method = $_SERVER["REQUEST_METHOD"];
@@ -23,10 +26,18 @@ if($http_method === "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/insert.css">
+    <link rel="stylesheet" href="../css/insert.css">
+    <link rel="stylesheet" href="../css/com_footer.css">
+    <link rel="stylesheet" href="../css/com_header.css">
+    <link rel="stylesheet" href="../css/com_slide.css">
     <title> 여행 일정 작성 </title>
 </head>
 <body>
+<?php 
+    include_once( URL_HEADER );
+    include_once( URL_SLIDE );
+    ?>
+    <main>
     <form method = "post" action="trip_insert.php">
         <label for="city"> 도시 </label>
         <input type="text" name="trip_city" id="city" required autofocus>
@@ -40,11 +51,15 @@ if($http_method === "POST"){
         <label for="data"> 날짜 </label>
         <input type="datetime-local" name="trip_date" id="date">
         <br>
+        <div>
         <label for="contents"> 내용 </label>
         <textarea name="trip_contents" id="contents" cols="30" rows="10"></textarea>
+        </div>
         <br>
-        <button type="submit">작성</button>
-        <button type="submit"> <a href="trip_list.php">back</a></button>
+        <button type="submit" class = "button_write">작성</button>
+        <button type="submit" class = "button_back"> <a href="trip_list.php">back</a></button>
     </form>
+    </main>
+    <?php include_once( URL_FOOTER );?>
 </body>
 </html>

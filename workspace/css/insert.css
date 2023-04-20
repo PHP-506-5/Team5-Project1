@@ -1,10 +1,12 @@
 main{
-    background-color: #EDF6F9;
+    background-color: #EEF6F9;
     width : 800px;
     height: 1200px;
 }
-article{
+form{
     background-color: #ffffff;
+    width:600px;
+    height: 800px;
 }
 input{
     border:none;
@@ -13,8 +15,20 @@ input{
 input:focus{
     outline: none;
 }
-#contents{
+div{
     background-color: skyblue;
     width: 300px;
     height: 500px;
+}
+button{
+    border:1px solid #90e0ef;
+    width: 80px;
+    height: 20px;
+    border-radius: 20px;
+}
+.button_write{
+    background-color: #90e0ef;
+}
+.button_back{
+    background-color: white;
 }

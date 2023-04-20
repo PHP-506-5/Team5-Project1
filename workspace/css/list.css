@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width:60%;
-    height:1000px;
+    height:1100px;
 }
 #first{
     display:flex;
@@ -17,18 +17,39 @@
 }
 #go{
     font-size:30px;
-    border:1px solid blue;
+    color: white;
+    background-color: blue;
     padding:0;
 }
 #img2{
     margin-top:-40px;
 }
-
+#listpage{
+    padding: 100px;
+    height: 800px;
+}
+form{
+    padding-top:100px;
+}
 table{
     border: 1px solid black;
     margin: 0 auto;
+    width: 80%;
+    height: 300px;
+    background-color: blue;
 }
-form{
-    margin: 0 auto;
+tbody{
+    text-align:center;
+    background-color: white;
 
+}
+td{
+    width: 200px;
+    height: 50px;
+}
+#choose{
+    text-align:center;
+}
+a{
+    text-decoration: none;
 }

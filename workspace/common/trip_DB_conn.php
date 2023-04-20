@@ -26,6 +26,7 @@
     함수명 : select_trip_info_paging_all
     기능   : 정보 모두 가져오면서 com여부 확인
     리턴값 : int $result
+    제작자 : 김영범
     ----------------------------------*/
     function select_trip_info_paging_all( &$param_arr ){
         $sql =
@@ -69,7 +70,13 @@
         return $result;
     }
     
-
+    /*-------------------------------
+    특정 변수가 들어오면 그 변수 전체값 가져오는 함수
+    함수명 : select_trip_info_paging_cnt
+    기능   : 정보 모두 가져오면서 com여부 확인
+    리턴값 : int $result
+    제작자 : 김영범
+    ----------------------------------*/
     function select_trip_info_cnt(&$param_arr){
         $sql =
             " SELECT "

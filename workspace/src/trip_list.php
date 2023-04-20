@@ -59,33 +59,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>여행 정보</title>
-	<style>
-		#img{
-			background-image: url(eword.jpg);
-			background-repeat: no-repeat;
-			background-size: cover;
-			width:60%;
-			height:1000px;
-		}
-		#first{
-			display:flex;
-			flex-wrap:wrap;
-		}
-		#mainname{
-			font-size:50px;
-			text-align:center;
-			width:40%;
-			margin-top:230px;
-		}
-		#go{
-			font-size:30px;
-			border:1px solid blue;
-			padding:0;
-		}
-		#img2{
-			margin-top:-40px;
-		}
-	</style>
+	<link rel="stylesheet" href="../css/list.css">
+	
 </head>
 <body>
 	<div id=first>

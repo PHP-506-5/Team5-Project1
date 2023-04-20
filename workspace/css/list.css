@@ -1,9 +1,10 @@
+
 #img{
     background-image: url("../image/img01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width:60%;
-    height:1100px;
+    height:1050px;
 }
 #first{
     display:flex;
@@ -25,7 +26,7 @@
     margin-top:-40px;
 }
 #listpage{
-    padding: 100px;
+    padding: 200px;
     height: 800px;
 }
 form{
@@ -35,8 +36,8 @@ table{
     border: 1px solid black;
     margin: 0 auto;
     width: 80%;
-    height: 300px;
-    background-color: blue;
+    height: 700px;
+    text-align:center;
 }
 tbody{
     text-align:center;
@@ -52,4 +53,15 @@ td{
 }
 a{
     text-decoration: none;
+    color: black;
+}
+#th1,#th2,#td1,#td2{
+    width: 30px;
+}
+#check_1:checked + label {
+    color: red;
+}
+
+#check_1 + label {
+    cursor: pointer;
 }

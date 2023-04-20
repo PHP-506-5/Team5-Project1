@@ -1,6 +1,6 @@
 <?php
 define("SRC_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
-define("URL_DB", SRC_ROOT . "작업/common/trip_DB_conn.ybk.php");
+define("URL_DB", SRC_ROOT . "작업/common/trip_DB_conn.php");
 include_once(URL_DB);
 
     $http_method = $_SERVER["REQUEST_METHOD"];

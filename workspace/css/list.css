@@ -1,5 +1,5 @@
 #img{
-    background-image: url("../../image/img01.jpg");
+    background-image: url("../image/img01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width:60%;
@@ -26,4 +26,9 @@
 
 table{
     border: 1px solid black;
+    margin: 0 auto;
+}
+form{
+    margin: 0 auto;
+
 }

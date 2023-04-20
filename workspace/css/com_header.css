@@ -1,5 +1,11 @@
 .header{
-    background-image: url("../image/head.jpg");
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    background-image: url("/image/head.jpg");
     background-repeat : no-repeat;
     background-size : cover;
 }

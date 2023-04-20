@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
 define("DOC_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
 define("URL_DB", DOC_ROOT . "workspace/common/trip_DB_conn.php");
 define("URL_SLIDE", DOC_ROOT . "/workspace/src/trip_slide.php" );
 define("URL_HEADER", DOC_ROOT . "/workspace/src/trip_header.php" );
 define("URL_FOOTER", DOC_ROOT . "/workspace/src/trip_footer.php" );
-=======
-define("SRC_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
-define("URL_DB", SRC_ROOT . "workspace/common/trip_DB_conn.php");
->>>>>>> 94efaa1c8192737fb1a4ad33b996d88232e00175
+
 include_once(URL_DB);
 
     $http_method = $_SERVER["REQUEST_METHOD"];
@@ -50,9 +46,9 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trip_update</title>
     <link rel="stylesheet" href="../css/update.css">
-    <!-- <link rel="stylesheet" href="../css/com_header.css">
+    <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_slide.css">
-    <link rel="stylesheet" href="../css/com_footer.css"> -->
+    <link rel="stylesheet" href="../css/com_footer.css">
 </head>
 <body>
     <div class="parent">
@@ -100,8 +96,8 @@ else{
     <!-- 푸 터 -->
     <footer class="page-footer">
         <div class="footer">
-        <?php include_once( URL_FOOTER ) ?>
         <p>푸터</p>
+        <?php include_once( URL_FOOTER ) ?>
         </div>
     </footer>
 </div>

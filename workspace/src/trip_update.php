@@ -56,14 +56,12 @@ else{
     <header class="page-header">
         <div class="header">
         <?php include_once( URL_HEADER ) ?>
-        <p>헤더</p>
         </div>
     </header>
     <!-- 왼쪽이미지 슬라이드 -->
     <aside class="page-leftbar">
         <div class="leftbar">
         <?php include_once( URL_SLIDE ) ?>
-        <p>슬라이드</p>
         </div>
     </aside>
     <!-- 게시판 -->
@@ -93,13 +91,7 @@ else{
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>
     </main>
-    <!-- 푸 터 -->
-    <footer class="page-footer">
-        <div class="footer">
-        <p>푸터</p>
-        <?php include_once( URL_FOOTER ) ?>
-        </div>
-    </footer>
 </div>
+    <?php include_once( URL_FOOTER ) ?>
 </body>
 </html>

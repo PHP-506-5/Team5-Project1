@@ -1,3 +1,4 @@
+<div id="footer">
 <footer>
     <h4>TEAM 5</h4>
     <ul>
@@ -16,4 +17,5 @@
 </footer>
 <div id="copyright">
     <p>@copyright 2023 team5</p>
+</div>
 </div>

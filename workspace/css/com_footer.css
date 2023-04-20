@@ -5,6 +5,7 @@ footer{
     grid-template-columns: repeat(3,1fr);
     color: white;
     background-color: #001d3d;
+
 }
 footer>h4{
     text-align: center;

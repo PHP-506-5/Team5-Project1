@@ -36,6 +36,7 @@
         ." , trip_title "
         ." , trip_contents "
         ." , trip_date "
+        ." , trip_com "
         ." FROM trip_info ";
         
         if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){

@@ -1,6 +1,5 @@
-
 #img{
-    background-image: url("../image/img01.jpg");
+    background-image: url("../image/메가스윙.gif");
     background-repeat: no-repeat;
     background-size: cover;
     width:60%;
@@ -11,16 +10,26 @@
     flex-wrap:wrap;
 }
 #mainname{
-    font-size:50px;
+    font-size:80px;
+    font-weight: 700;
     text-align:center;
     width:40%;
     margin-top:230px;
+    vertical-align: baseline;
 }
 #go{
     font-size:30px;
     color: white;
-    background-color: blue;
-    padding:0;
+    background-color: #90e0ef;
+    padding:10px;
+    box-sizing: border-box;
+    font-feature-settings: normal;
+    font-stretch: 100%;
+    font-weight: 400;
+    width: 280px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    border-radius: 20px 20px 20px 20px;
 }
 #img2{
     margin-top:-40px;
@@ -28,25 +37,26 @@
 #listpage{
     padding: 200px;
     height: 800px;
+    background-color: #f5f1eb;
+    margin-top: 100px;
 }
 form{
     padding-top:100px;
+    float: right;
 }
 table{
-    border: 1px solid black;
     margin: 0 auto;
     width: 80%;
-    height: 700px;
+    height: 400px;
     text-align:center;
 }
 tbody{
     text-align:center;
-    background-color: white;
-
 }
 td{
     width: 200px;
-    height: 50px;
+    height: 80px;
+    margin-top: 20px;
 }
 #choose{
     text-align:center;
@@ -55,13 +65,54 @@ a{
     text-decoration: none;
     color: black;
 }
-#th1,#th2,#td1,#td2{
-    width: 30px;
+#div1{
+    /* text-decoration: line-through; */
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    width: 240px;
+    height: 50px;
+    margin-left: 150px;
 }
-#check_1:checked + label {
-    color: red;
+#div1 span {
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
 }
 
-#check_1 + label {
-    cursor: pointer;
+#div2,#div4{
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    width: 240px;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 150px;
+}
+#th1,#th2,#td1,#td2{
+    width: 100px;
+    margin: 0;
+}
+#choosebut{
+    margin-top: 20px;
+    text-align: center;
+}
+/* th,td{
+    padding: 20px;
+} */
+#td1{
+    font-weight: bolder;
+    color: black;
+    font-size: larger;
+    font-stretch: 100%;
+    font-weight: 400;
+}
+form{
+    margin-top: -170px;   
+    display: flex;
+    flex-wrap: nowrap;
+}
+#select{
+    margin-left: 5px;
+}
+th,#div1,#div2,#div4{
+    margin: 0 auto;
 }

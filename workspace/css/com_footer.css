@@ -1,29 +1,32 @@
-.page-footer {
-    grid-area: 5 / 1 / 6 / 6;
-    background-color: #131c4a;
-    color: white;color: white;
-    font-weight: 600;
+footer{
+    width:100%;
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    color: white;
+    background-color: blue;
+}
+footer>h4{
     text-align: center;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 10px;  
+    margin-top: 100px;
 }
-.information{
-    list-style-type: none;
-    /* line-height: 50px; */
+#top{
+    font-weight: bold;
 }
-.team_members{
-    list-style-type: none;
-    /* line-height: 20px; */
+footer>ul{
+    margin-top: 60px;
+    text-align: center;
 }
 #copyright{
     width: 100%;
     height: 50px;
     text-align: center;
     color: white;
-    background-color: #020f1d;
+    background-color: black;
 }
 #copyright>p{
     padding: 15px;
-    margin: 0;
+}
+ul{
+    list-style: none;
 }

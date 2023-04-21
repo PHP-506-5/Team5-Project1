@@ -129,30 +129,30 @@ ul, li {
 			<div>
 				<label for="slide04" class="left"></label>
 				<label for="slide02" class="right"></label>
-				<a><img src="/image/img01.jpg"></a>
+				<!-- <a><img src="../image/img01.jpg"></a> -->
 			</div>
 		</li>
 		<li class="slideitem">
 			<div>
 				<label for="slide01" class="left"></label>
 				<label for="slide03" class="right"></label>
-				<a><img src="/image/img02.jpg"></a>
+				<!-- <a><img src="../image/img02.jpg"></a> -->
 			</div>
 		</li>
 		<li class="slideitem">
 			<div>
 				<label for="slide02" class="left"></label>
 				<label for="slide04" class="right"></label>
-				<a><img src="/image/img03.jpg"></a>
+				<!-- <a><img src="../image/img03.jpg"></a> -->
 			</div>
 		</li>
-		<!-- <li class="slideitem">
+		<li class="slideitem">
 			<div>
 				<label for="slide03" class="left"></label>
 				<label for="slide01" class="right"></label>
-				<a><img src="../../사진/img0"></a> 
+				<!-- <a><img src="../image/img04.jpg"></a>  -->
 			</div>
-		</li> -->
+		</li>
 	</ul>
 </div>
 </body>

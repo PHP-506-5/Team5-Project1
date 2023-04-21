@@ -1,21 +1,19 @@
-.parent {
+.parent { /* 전 체 */
     display: grid;
-    /* grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr); */
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    height: 940px;
+    height: 1000px;
     }
 
-.page-header {
+.page-header { /* 헤 더 */
     grid-column: 2/6;
     grid-row: 1/2;
 }
-.page-leftbar {
+.page-leftbar { /* 슬라이드 */
     grid-column: 1/2;
     grid-row: 1/6;
 }
-.page-main {
+.page-main { /* 메 인 */
     grid-column: 2/6;
     grid-row: 2/6;
     color: #242424;

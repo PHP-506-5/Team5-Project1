@@ -56,15 +56,15 @@ else{
     <?php include_once( URL_SLIDE ) ?>          <!-- 슬라이드 -->
     <main class="page-main">                    <!-- 게시판 -->
     <form method="post" action="trip_update.php">
-        <div>
+        <div class="main_form">
+            <h2> UPDATE </h2>
             <label for="title"> 제목 </label>
             <input type="text" name="trip_title" id="title" required value="<?php echo $result_info["trip_title"] ?>">   
             <br>
             <label for="city"> 도시 </label>
             <input type="text" name="trip_city" id="city" required autofocus value="<?php echo $result_info["trip_city"] ?>">
-            <br>
             <label for="price"> 비용 </label>
-            <input type="text" name="trip_price" id="price" value="<?php echo $result_info["trip_price"] ?>">
+            <input type="number" name="trip_price" id="price"  required step="100" value="<?php echo $result_info["trip_price"] ?>">
             <br>
             <label for="data"> 날짜 </label>
             <input type="datetime-local" name="trip_date" id="date" value="<?php echo $result_info["trip_date"] ?>">
@@ -73,9 +73,9 @@ else{
             <textarea rows="10" cols="80" name="trip_contents" id="contents"><?php echo $result_info["trip_contents"] ?></textarea>
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"] ?>">
         </div>
-        <div class="button">
+        <div class="button_group">
             <button type="submit" class="button_write">수정</button>
-            <button type="button"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
+            <button type="button" class="button_back"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
 		</div>
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>

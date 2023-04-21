@@ -5,24 +5,35 @@
     grid-row-gap: 20px;
     height: 1000px;
     margin: auto;
-    
 }
 .page-main { /* 메인 */
     grid-column: 1/5;
     grid-row: 2/6;
-    color: #242424;
-    font-weight: 600;
-    text-align: center;
-    box-sizing: border-box;
     background-color: #f5f1eb;
+    width : 1400px;
     height: 100%;
-    width:1400px;
+}
+.main_form{
+    background-color: #ffffff;
+    width:800px;
+    height: 600px;
+    margin : auto;
+    border-radius: 20px;
+    padding-top: 50px;
+    padding-left: 50px;
+    margin-top: 60px;
+    line-height: 50px;
+    box-shadow: 1px 1px 5px #ccc;
 }
 body{
-    width: 1800px;
+    max-width: 1800px;
+    max-height: 1400px;
     margin: 0 auto;
 }
 #contents{
+    width: 600px;
+    height: 300px;
+    border-style: none;
     background-attachment: local;
     background-image:
     linear-gradient(to right, white 10px, transparent 10px),
@@ -30,16 +41,48 @@ body{
     repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
     line-height: 31px;
     padding: 8px 10px;
+    resize: none;
+    vertical-align: top;
 }
 button{
     border:1px solid #90e0ef;
-    width: 80px;
-    height: 20px;
+    width: 100px;
+    height: 30px;
     border-radius: 20px;
+}
+.button_group{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 350px 0  0;
 }
 .button_write{
     background-color: #90e0ef;
+    margin-right: 10px;
+}
+.button_back{
+    background-color: white;
 }
 a{
     text-decoration: none;
+}
+input{
+    border:none;
+    border-bottom: 1px solid black;
+}
+input:focus{
+    outline: none;
+}
+label {
+	display:inline-block;
+	text-align:center;
+	width:80px;
+	font-weight:bold;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+h2{
+	margin:-20px 0 20px 30px;
+	margin-bottom:20px;
 }

@@ -1,4 +1,4 @@
-.header{
+header{
     display: flex;
     align-items: center;
     color: white;
@@ -9,8 +9,9 @@
     background-image: url("/workspace/image/head.jpg");
     background-repeat : no-repeat;
     background-size : cover;
+    width: 100%;
     font-size:30px;
 }
-.header a{
+header a{
     text-decoration-line:none;
 }

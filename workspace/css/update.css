@@ -9,10 +9,7 @@
     grid-column: 2/6;
     grid-row: 1/2;
 }
-.page-leftbar { /* 슬라이드 */
-    grid-column: 1/2;
-    grid-row: 1/6;
-}
+
 .page-main { /* 메 인 */
     grid-column: 2/6;
     grid-row: 2/6;
@@ -21,6 +18,9 @@
     text-align: center;
     box-sizing: border-box;
     background-color: #eef6f9;
-    height: 100%;
-    padding: 10px;  
+    height: 100%;  
+}
+body{
+    width: 1600px;
+    margin: 0   auto;
 }

@@ -53,17 +53,15 @@ else{
 <body>
     <div class="parent">
     <!-- 헤더     -->
-    <header class="page-header">
-        <div class="header">
+    <!-- <header class="page-header"> -->
         <?php include_once( URL_HEADER ) ?>
-        </div>
-    </header>
+    <!-- </header> -->
     <!-- 왼쪽이미지 슬라이드 -->
-    <aside class="page-leftbar">
-        <div class="leftbar">
+    <!-- <aside class="page-leftbar"> -->
+        <!-- <div class="leftbar"> -->
         <?php include_once( URL_SLIDE ) ?>
-        </div>
-    </aside>
+        <!-- </div> -->
+    <!-- </aside> -->
     <!-- 게시판 -->
     <main class="page-main">
     <form method="post" action="trip_update.php">

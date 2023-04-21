@@ -26,40 +26,41 @@ if($http_method === "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/insert.css">
     <link rel="stylesheet" href="../css/com_footer.css">
     <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_slide.css">
+    <link rel="stylesheet" href="../css/insert.css">
     <title> 여행 일정 작성 </title>
 </head>
 <body>
-<?php 
-    include_once( URL_HEADER );
-    include_once( URL_SLIDE );
-    ?>
-    <main>
-    <form method = "post" action="trip_insert.php">
-        <label for="city"> 도시 </label>
-        <input type="text" name="trip_city" id="city" required autofocus>
-        <br>
-        <label for="title"> 제목 </label>
-        <input type="text" name="trip_title" id="title" required>
-        <br>
-        <label for="price"> 비용 </label>
-        <input type="number" name="trip_price" id="price" required step="100">
-        <br>
-        <label for="data"> 날짜 </label>
-        <input type="datetime-local" name="trip_date" id="date">
-        <br>
-        <div>
-        <label for="contents"> 내용 </label>
-        <textarea name="trip_contents" id="contents" cols="30" rows="10"></textarea>
-        </div>
-        <br>
-        <button type="submit" class = "button_write">작성</button>
-        <button type="submit" class = "button_back"> <a href="trip_list.php">back</a></button>
-    </form>
-    </main>
-    <?php include_once( URL_FOOTER );?>
+    <div class="all">
+    <?php include_once( URL_HEADER ) ?>
+    <?php include_once( URL_SLIDE ) ?>
+    <main class="page-main">
+            <form method = "post" action="trip_insert.php">
+                <div class="main_form">
+                    <h2> WRITE </h2>
+                    <label for="title"> 제목 </label>
+                    <input type="text" name="trip_title" id="title" required>
+                    <br>
+                    <label for="city"> 도시 </label>
+                    <input type="text" name="trip_city" id="city" required autofocus>
+                    <label for="price"> 비용 </label>
+                    <input type="number" name="trip_price" id="price" required step="100">
+                    <br>
+                    <label for="data"> 날짜 </label>
+                    <input type="datetime-local" name="trip_date" id="date">
+                    <br>
+                    <label for="contents"> 내용 </label>
+                    <textarea rows="10" cols="80" name="trip_contents" id="contents"></textarea>
+                </div>
+                <div class="button_group">
+                    <button type="submit" class = "button_write">작성</button>
+                    <button type="submit" class = "button_back"> <a href="trip_list.php">back</a></button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <?php include_once( URL_FOOTER )?>
 </body>
 </html>

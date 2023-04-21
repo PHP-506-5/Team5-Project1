@@ -1,4 +1,3 @@
-<body>
 <div class="slidebox">
 	<input type="radio" name="slide" id="slide01" checked>
 	<input type="radio" name="slide" id="slide02">
@@ -35,4 +34,3 @@
 		</li>
 	</ul>
 </div>
-</body>

@@ -56,7 +56,7 @@ else{
     <?php include_once( URL_SLIDE ) ?>          <!-- 슬라이드 -->
     <main class="page-main">                    <!-- 게시판 -->
     <form method="post" action="trip_update.php">
-        <div class="aaa">
+        <div>
             <label for="title"> 제목 </label>
             <input type="text" name="trip_title" id="title" required value="<?php echo $result_info["trip_title"] ?>">   
             <br>
@@ -74,8 +74,8 @@ else{
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"] ?>">
         </div>
         <div class="button">
-            <button type="submit" class="">수정</button>
-            <button type="button"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="">취소</a></button>
+            <button type="submit" class="button_write">수정</button>
+            <button type="button"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
 		</div>
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>

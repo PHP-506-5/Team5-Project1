@@ -1,13 +1,13 @@
 * {
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 ul, li {
-	list-style:none;
+    list-style:none;
 }
 [name="slide"] {
-	display:none;
+    display:none;
 }
 .slidebox {
 	display: grid;
@@ -18,7 +18,9 @@ ul, li {
 	text-align:center;
 }
 .slidebox img {
-	max-width:400px;
+    width:400px;
+	height:1000px;
+	object-fit:cover;
 }
 .slidebox .slidelist {
 	white-space:nowrap;
@@ -40,28 +42,35 @@ ul, li {
 	padding:20px;
 	border-radius:50%;
 	cursor:pointer;
-} */
-/* 페이징 스타일 */
-.paginglist {
-	text-align:center;
-	padding:30px 0;
 }
-.paginglist > li {
-	display:inline-block;
-	vertical-align:middle;
-	margin:0 10px;
+label.left {
+	left:20px;
+	background-color:#00bbff;
+	background-image:url('../image/left-arrow.png');
+	background-position:center center;
+	background-size:50%;
+	background-repeat:no-repeat;
 }
-img{
-	width:400px;
-	height:1000px;
-	object-fit:cover;
+label.right {
+	right:20px;
+	background-color:#00bbff;
+	background-image:url('../image/right-arrow.png');
+	background-position:center center;
+	background-size:50%;
+	background-repeat:no-repeat;
 }
 
-/* 시간변경 */
+/* 페이징 스타일 */
+.paginglist {text-align:center;padding:30px 0;}
+.paginglist > li {display:inline-block;vertical-align:middle;margin:0 10px;}
+.paginglist > li > label {display:block;padding:10px 30px;border-radius:10px;background:#ccc;cursor:pointer;}
+.paginglist > li:hover > label {background:#333;}
+
 [id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 20s infinite;}
 [id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide02 20s infinite;}
 [id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide03 20s infinite;}
 [id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%);animation:slide04 20s infinite;}
+
 @keyframes slide01 {
 	0% {left:0%;}
 	23% {left:0%;}

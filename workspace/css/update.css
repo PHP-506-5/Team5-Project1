@@ -1,8 +1,11 @@
 .parent { /* 전 체 */
+    width: 2000;
     display: grid;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     height: 1000px;
+    margin: auto;
+    
 }
 .page-main { /* 메 인 */
     grid-column: 2/6;
@@ -12,7 +15,8 @@
     text-align: center;
     box-sizing: border-box;
     background-color: #eef6f9;
-    height: 100%;  
+    height: 100%;
+    width:1200px;
 }
 body{
     width: 1600px;

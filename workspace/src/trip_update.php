@@ -52,18 +52,9 @@ else{
 </head>
 <body>
     <div class="parent">
-    <!-- 헤더     -->
-    <!-- <header class="page-header"> -->
-        <?php include_once( URL_HEADER ) ?>
-    <!-- </header> -->
-    <!-- 왼쪽이미지 슬라이드 -->
-    <!-- <aside class="page-leftbar"> -->
-        <!-- <div class="leftbar"> -->
-        <?php include_once( URL_SLIDE ) ?>
-        <!-- </div> -->
-    <!-- </aside> -->
-    <!-- 게시판 -->
-    <main class="page-main">
+    <?php include_once( URL_HEADER ) ?>         <!-- 헤 더-->
+    <?php include_once( URL_SLIDE ) ?>          <!-- 슬라이드 -->
+    <main class="page-main">                    <!-- 게시판 -->
     <form method="post" action="trip_update.php">
         <div class="aaa">
             <label for="title"> 제목 </label>
@@ -72,11 +63,11 @@ else{
             <label for="city"> 도시 </label>
             <input type="text" name="trip_city" id="city" required autofocus value="<?php echo $result_info["trip_city"] ?>">
             <br>
-            <label for="data"> 날짜 </label>
-            <input type="datetime-local" name="trip_date" id="date" value="<?php echo $result_info["trip_date"] ?>">
-            <br>
             <label for="price"> 비용 </label>
             <input type="text" name="trip_price" id="price" value="<?php echo $result_info["trip_price"] ?>">
+            <br>
+            <label for="data"> 날짜 </label>
+            <input type="datetime-local" name="trip_date" id="date" value="<?php echo $result_info["trip_date"] ?>">
             <br>
             <label for="contents"> 내용 </label>
             <textarea rows="6" cols="40" name="trip_contents" id="contents"><?php echo $result_info["trip_contents"] ?></textarea>
@@ -90,6 +81,6 @@ else{
     </form>
     </main>
 </div>
-    <?php include_once( URL_FOOTER ) ?>
+    <?php include_once( URL_FOOTER ) ?>     <!-- 푸 터 -->
 </body>
 </html>

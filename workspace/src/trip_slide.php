@@ -1,5 +1,4 @@
 <body>
-<!-- 이미지 슬라이드    -->
 <div class="slidebox">
 	<input type="radio" name="slide" id="slide01" checked>
 	<input type="radio" name="slide" id="slide02">
@@ -31,7 +30,7 @@
 			<div>
 				<label for="slide03" class="left"></label>
 				<label for="slide01" class="right"></label>
-				<!-- <a><img src="../image/img04.jpg"></a>  -->
+				<a><img src="../image/dd.jpg"></a>
 			</div>
 		</li>
 	</ul>

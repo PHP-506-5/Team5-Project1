@@ -3,13 +3,7 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     height: 1000px;
-    }
-
-.page-header { /* 헤 더 */
-    grid-column: 2/6;
-    grid-row: 1/2;
 }
-
 .page-main { /* 메 인 */
     grid-column: 2/6;
     grid-row: 2/6;
@@ -22,5 +16,5 @@
 }
 body{
     width: 1600px;
-    margin: 0   auto;
+    margin: 0 auto;
 }

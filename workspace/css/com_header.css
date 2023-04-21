@@ -1,5 +1,7 @@
 header{
-    display: flex;
+    display: grid;
+    grid-column: 2/6;
+    grid-row: 1/2;
     align-items: center;
     color: white;
     text-align: left;

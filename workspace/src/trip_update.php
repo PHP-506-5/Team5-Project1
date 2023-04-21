@@ -70,7 +70,7 @@ else{
             <input type="datetime-local" name="trip_date" id="date" value="<?php echo $result_info["trip_date"] ?>">
             <br>
             <label for="contents"> 내용 </label>
-            <textarea rows="6" cols="40" name="trip_contents" id="contents"><?php echo $result_info["trip_contents"] ?></textarea>
+            <textarea rows="10" cols="80" name="trip_contents" id="contents"><?php echo $result_info["trip_contents"] ?></textarea>
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"] ?>">
         </div>
         <div class="button">

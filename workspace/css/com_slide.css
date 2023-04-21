@@ -11,15 +11,15 @@ ul, li {
 }
 .slidebox {
 	display: grid;
-	grid-column: 1/2;
-    grid-row: 1/6;
+	grid-column: 5/6;
+    grid-row: 2/6;
 	max-width:400px;
 	width:100%;
 	text-align:center;
 }
 .slidebox img {
     width:400px;
-	height:1000px;
+	height:780px;
 	object-fit:cover;
 }
 .slidebox .slidelist {
@@ -45,7 +45,6 @@ ul, li {
 }
 label.left {
 	left:20px;
-	background-color:#00bbff;
 	background-image:url('../image/left-arrow.png');
 	background-position:center center;
 	background-size:50%;
@@ -53,14 +52,13 @@ label.left {
 }
 label.right {
 	right:20px;
-	background-color:#00bbff;
 	background-image:url('../image/right-arrow.png');
 	background-position:center center;
 	background-size:50%;
 	background-repeat:no-repeat;
 }
 
-/* 페이징 스타일 */
+/* Ã­Å½ËœÃ¬ÂÂ´Ã¬Â§â€¢ Ã¬Å Â¤Ã­Æ’â‚¬Ã¬ÂÂ¼ */
 .paginglist {text-align:center;padding:30px 0;}
 .paginglist > li {display:inline-block;vertical-align:middle;margin:0 10px;}
 .paginglist > li > label {display:block;padding:10px 30px;border-radius:10px;background:#ccc;cursor:pointer;}

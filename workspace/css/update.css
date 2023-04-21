@@ -1,4 +1,4 @@
-.parent { /* 전 체 */
+.parent { /* 전체 */
     width: 2000;
     display: grid;
     grid-column-gap: 20px;
@@ -7,18 +7,27 @@
     margin: auto;
     
 }
-.page-main { /* 메 인 */
-    grid-column: 2/6;
+.page-main { /* 메인 */
+    grid-column: 1/5;
     grid-row: 2/6;
     color: #242424;
     font-weight: 600;
     text-align: center;
     box-sizing: border-box;
-    background-color: #eef6f9;
+    background-color: #f5f1eb;
     height: 100%;
-    width:1200px;
+    width:1600px;
 }
 body{
-    width: 1600px;
+    width: 2000px;
     margin: 0 auto;
+}
+#contents{
+    background-attachment: local;
+    background-image:
+    linear-gradient(to right, white 10px, transparent 10px),
+    linear-gradient(to left, white 10px, transparent 10px),
+    repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
 }

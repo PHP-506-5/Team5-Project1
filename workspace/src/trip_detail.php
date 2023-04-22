@@ -34,11 +34,12 @@ $result_com = select_trip_info_com($arr_get["trip_no"]);
     <main>
         <br>
         <div class="title_group">
-            <h2><?php echo $result["trip_title"]?></h2>
             <?php if (isset($result_com[0]["trip_com"])) {
                     if ($result_com[0]["trip_com"] == 0 || $result_com[0]["trip_com"] == 2) { ?>
+                        <h2><?php echo $result["trip_title"]?></h2>
                         <div class="trip_com"> 미완료 </div>
                     <?php } else if ($result_com[0]["trip_com"] == 1) { ?>
+                        <h2 class="complete"><?php echo $result["trip_title"]?></h2>
                         <div class="trip_com"> 완료 </div>
                     <?php }
                 } ?>

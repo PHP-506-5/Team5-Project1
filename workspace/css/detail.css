@@ -113,3 +113,6 @@ a>span{
 .back_b{
     right:180px;
 }
+.complete{
+    text-decoration: line-through;
+}

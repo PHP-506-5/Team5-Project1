@@ -34,6 +34,8 @@ main{
 input{
     border:none;
     border-bottom: 1px solid black;
+    height: 35px;
+    /* font-size:20px; */
 }
 input:focus{
     outline: none;
@@ -48,6 +50,7 @@ button{
     width: 100px;
     height: 30px;
     border-radius: 20px;
+    font-size: medium;
 }
 .button_write{
     background-color: #90e0ef;
@@ -69,6 +72,7 @@ button{
     line-height: 31px;
     padding: 8px 10px;
     resize: none;
+    margin-top: 10px;
     vertical-align: top;
 }
 label {
@@ -85,4 +89,10 @@ h2{
 	margin:-20px 0 20px 30px;
 /* 	margin-left:30px; */
 	margin-bottom:20px;
+}
+.lable_price{
+    margin-right: 10px;
+}
+#title{
+    width: 300px;
 }

@@ -7,6 +7,14 @@ include_once( URL_DB );
 
 $arr_get = $_GET;
 $result = select_trip_info_no($arr_get["trip_no"]);
+
+$front_page =  $result["trip_no"]-1;
+$back_page =  $result["trip_no"]+1;
+$result_max = trip_info_no_max();
+$max_trip_no = ceil( (int)$result_max[0]["max"]);
+
+$result_com = select_trip_info_com($arr_get["trip_no"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -22,18 +30,42 @@ $result = select_trip_info_no($arr_get["trip_no"]);
 </head>
 <body>
     <?php include_once( URL_HEADER ); ?>
+
     <main>
-        <h2><?php echo $result["trip_title"]?></h2>
-        <article>
-            <p> 도시 <span> <?php echo $result["trip_city"]?> </span></p>
-            <p> 비용 <span> <?php echo $result["trip_price"]?> </span></p>
-            <p> 날짜 <span> <?php echo $result["trip_date"]?> </span></p>
-            <p class="c_contents"> 내용 <div class="contents"><span > <?php echo $result["trip_contents"]?> </span></div></p>
-        </article>
-        <button type="button" class="button_list"><a href="trip_list.php#tag">리스트</a></button>
-        <button type="button" class="button_up"><a href="trip_update.php?trip_no=<?php echo $result["trip_no"] ?>"> 수정</a></button>
-        <button type="button" class="button_comp"><a href="trip_complete.php?trip_no=<?php echo $result["trip_no"] ?>">완료</a></button>
+        <br>
+        <div class="title_group">
+            <h2><?php echo $result["trip_title"]?></h2>
+            <?php if (isset($result_com[0]["trip_com"])) {
+                    if ($result_com[0]["trip_com"] == 0 || $result_com[0]["trip_com"] == 2) { ?>
+                        <div class="trip_com"> 미완료 </div>
+                    <?php } else if ($result_com[0]["trip_com"] == 1) { ?>
+                        <div class="trip_com"> 완료 </div>
+                    <?php }
+                } ?>
+        </div>
+        
+        <div class ="main_group">
+            <?php if($result["trip_no"]>1) { ?>
+            <a href="trip_detail.php?trip_no=<?php echo $front_page ?>"> <span class ="front_b">◀</span> </a>
+            <?php } ?>
+            <article>
+                <p> 도시 <span> <?php echo $result["trip_city"]?> </span></p>
+                <p> 비용 <span> <?php echo $result["trip_price"]?> </span></p>
+                <p> 날짜 <span> <?php echo $result["trip_date"]?> </span></p>
+                <p> 내용 <div class="contents"> <div><?php echo $result["trip_contents"]?> </div></div></p>
+            </article>
+            <?php if($result["trip_no"]<$max_trip_no) { ?>
+            <a href="trip_detail.php?trip_no=<?php echo $back_page ?>"> <span class ="back_b">▶</span> </a>
+            <?php } ?>
+        </div>
+        
+        <div class ="button_group">
+            <button type="button"><a href="trip_list.php#tag">리스트</a></button>
+            <button type="button" class="button_up"><a href="trip_update.php?trip_no=<?php echo $result["trip_no"] ?>"> 수정</a></button>
+            <button type="button" class="button_comp"><a href="trip_complete.php?trip_no=<?php echo $result["trip_no"] ?>">완료</a></button>
+        </div>
     </main>
+    
     <?php include_once( URL_FOOTER );?>
 
 </body>

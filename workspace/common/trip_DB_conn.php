@@ -205,11 +205,12 @@ function update_trip_info_no( &$param_arr )
 }
 
 // ---------------------------------
-// 함수명	: insert_trip_info
-// 기능		: 작성을 할수 있게 해준다.
-// 파라미터	: array   &$param_arr
-// 리턴값	: string  $result_cnt
-// 제작     : 김진아
+// 새로운 일정을 생성하는 함수 작성
+// 함수명	 : insert_trip_info
+// 기능		 : 일정을 db에 넣어준다.
+// 파라미터	 : array   &$param_arr
+// 리턴값	 : string  $result_cnt
+// 제작자    : 김진아
 // ---------------------------------
 function insert_trip_info(&$param_arr){
     $sql =
@@ -256,13 +257,14 @@ function insert_trip_info(&$param_arr){
     return $result_cnt;
 }
 
-// ---------------------------------
-// 함수명	: detail_complete_trip_info
-// 기능		: 상세페이지에서 완료를 할 수 있게해준다
-// 파라미터	: int  	&$param_no
-// 리턴값	: int   $result_cnt
-// 개발     : 김진아
-// ---------------------------------
+// ---------------------------------------------
+// 상세페이지에서 완료를 할 수 있게해주는 함수 작성
+// 함수명	  :  detail_complete_trip_info
+// 기능		  :  trip_com을 0에서 1로 변경한다.
+// 파라미터   :  int  	&$param_no
+// 리턴값	  :  int   $result_cnt
+// 제작자     :  김진아
+// ---------------------------------------------
 function detail_complete_trip_info( &$param_no){
     $sql = " UPDATE "
         ." trip_info "
@@ -292,13 +294,14 @@ function detail_complete_trip_info( &$param_no){
     return $result_cnt;
 }
 
-// ---------------------------------
+// --------------------------------------------------
+// 작성페이지에서 작성을 누르면 상세로 가는 함수 작성
 // 함수명    : trip_info_no_max
-// 기능      : 현재 리스트중에서 가장 큰 값을 구한다
+// 기능      : trip_no의 최댓값을 구한다.
 // 파라미터  : 없음
 // 리턴값    : array   $result
-// 제작      : 김진아
-// ---------------------------------
+// 제작자     : 김진아
+// --------------------------------------------------
 function trip_info_no_max(){
     $sql = " SELECT "
         ." max(trip_no) max "
@@ -323,4 +326,38 @@ function trip_info_no_max(){
     }
     return $result;
 }
+
+// ----------------------------------------------------
+// 상세페이지에서 완료 미완료를 확인할수있게 하는 함수 작성
+// 함수명    : select_trip_com_info
+// 기능      : 해당하는 trip_no의 com값을 가져온다.
+// 파라미터  : int     &$param_no
+// 리턴값    : int     $result
+// 제작      : 김진아
+// ----------------------------------------------------
+function select_trip_info_com(&$param_no){
+    $sql = " SELECT "
+        ." trip_com "
+        ." FROM trip_info "
+        ." WHERE "
+        ." trip_no = :trip_no";
+
+    $arr_prepare = array(":trip_no" => $param_no);
+
+    $conn=null;
+    try {
+        db_conn($conn);
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result = $stmt->fetchall();
+    } 
+    catch ( Exception $e) {
+        return $e->getMessage();
+    }
+    finally{
+        $conn = null;
+    }
+    return $result;
+}
+
     ?>

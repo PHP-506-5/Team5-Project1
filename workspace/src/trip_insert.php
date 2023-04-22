@@ -34,9 +34,11 @@ if($http_method === "POST"){
 </head>
 <body>
     <div class="all">
+    
     <?php include_once( URL_HEADER ) ?>
     <?php include_once( URL_SLIDE ) ?>
-    <main class="page-main">
+    
+        <main class="page-main">
             <form method = "post" action="trip_insert.php">
                 <div class="main_form">
                     <h2> WRITE </h2>
@@ -45,7 +47,7 @@ if($http_method === "POST"){
                     <br>
                     <label for="city"> 도시 </label>
                     <input type="text" name="trip_city" id="city" required autofocus>
-                    <label for="price"> 비용 </label>
+                    <label for="price" class="lable_price"> 비용 </label>
                     <input type="number" name="trip_price" id="price" required step="100">
                     <br>
                     <label for="data"> 날짜 </label>
@@ -54,13 +56,17 @@ if($http_method === "POST"){
                     <label for="contents"> 내용 </label>
                     <textarea rows="10" cols="80" name="trip_contents" id="contents"></textarea>
                 </div>
+
                 <div class="button_group">
                     <button type="submit" class = "button_write">작성</button>
                     <button type="submit" class = "button_back"> <a href="trip_list.php">back</a></button>
                 </div>
+
             </form>
         </main>
     </div>
+
     <?php include_once( URL_FOOTER )?>
+    
 </body>
 </html>

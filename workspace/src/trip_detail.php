@@ -6,15 +6,15 @@ define( "URL_FOOTER", DOC_ROOT."workspace/src/trip_footer.php" );
 include_once( URL_DB );
 
 $arr_get = $_GET;
-$result = select_trip_info_no($arr_get["trip_no"]);
+$result = select_trip_info_no($arr_get["trip_no"]); 
 
 $front_page =  $result["trip_no"]-1;
 $back_page =  $result["trip_no"]+1;
 $result_max = trip_info_no_max();
 $max_trip_no = ceil( (int)$result_max[0]["max"]);
 
-$result_com = select_trip_info_com($arr_get["trip_no"]);
-
+$trip_com = select_trip_info_com($arr_get["trip_no"]);
+$result_com = $trip_com[0]["trip_com"]
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,7 @@ $result_com = select_trip_info_com($arr_get["trip_no"]);
     <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_footer.css">
     <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/font.css">
     <title> 여행 상세 일정 </title>
 </head>
 <body>
@@ -34,11 +35,11 @@ $result_com = select_trip_info_com($arr_get["trip_no"]);
     <main>
         <br>
         <div class="title_group">
-            <?php if (isset($result_com[0]["trip_com"])) {
-                    if ($result_com[0]["trip_com"] == 0 || $result_com[0]["trip_com"] == 2) { ?>
+            <?php if (isset($result_com)) {
+                    if ($result_com == 0 || $result_com == 2) { ?>
                         <h2><?php echo $result["trip_title"]?></h2>
                         <div class="trip_com"> 미완료 </div>
-                    <?php } else if ($result_com[0]["trip_com"] == 1) { ?>
+                    <?php } else if ($result_com == 1) { ?>
                         <h2 class="complete"><?php echo $result["trip_title"]?></h2>
                         <div class="trip_com"> 완료 </div>
                     <?php }

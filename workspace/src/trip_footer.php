@@ -8,8 +8,8 @@
         <li>JIN A KIM</li>
     </ul>
     <ul>
-        <li>contact us</li>
-        <li>GREENCOMPUTE 506</li>
+        <li>CONTACT US</li>
+        <li>GREEN ART COMPUTER 506</li>
         <li>010-1234-5678</li>
         <li>faer9876@naver.com</li>
     </ul>

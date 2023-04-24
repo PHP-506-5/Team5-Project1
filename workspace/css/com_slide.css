@@ -58,12 +58,23 @@ label.right {
 	background-repeat:no-repeat;
 }
 
-/* Ã­Å½ËœÃ¬ÂÂ´Ã¬Â§â€¢ Ã¬Å Â¤Ã­Æ’â‚¬Ã¬ÂÂ¼ */
-.paginglist {text-align:center;padding:30px 0;}
-.paginglist > li {display:inline-block;vertical-align:middle;margin:0 10px;}
-.paginglist > li > label {display:block;padding:10px 30px;border-radius:10px;background:#ccc;cursor:pointer;}
-.paginglist > li:hover > label {background:#333;}
-
+.paginglist {text-align:center;
+	padding:30px 0;
+}
+.paginglist > li {
+	display:inline-block;
+	vertical-align:middle;
+	margin:0 10px;}
+.paginglist > li > label {
+	display:block;
+	padding:10px 30px;
+	border-radius:10px;
+	background:#ccc;
+	cursor:pointer;}
+.paginglist > li:hover > label {
+	background:#333;
+}
+/* 페이징 스타일 */
 [id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 20s infinite;}
 [id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide02 20s infinite;}
 [id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide03 20s infinite;}

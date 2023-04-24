@@ -7,19 +7,20 @@ header{
     text-align: left;
     box-sizing: border-box;
     height: 200px;
+    width: 100%;
     padding: 10px;
     background-image: url("/workspace/image/head.jpg");
     background-repeat : no-repeat;
     background-size : cover;
-    width: 100%;
     font-size:30px;
 }
 header a{
     text-decoration-line:none;
+    padding: 50px;
 }
 header a:visited {
     color: white;
     }
 header a:hover {
-        color: lightblue;
+        color: #ccc;
     }

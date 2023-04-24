@@ -52,9 +52,9 @@ else{
 </head>
 <body>
     <div class="parent">
-    <?php include_once( URL_HEADER ) ?>         <!-- 헤 더-->
-    <?php include_once( URL_SLIDE ) ?>          <!-- 슬라이드 -->
-    <main class="page-main">                    <!-- 게시판 -->
+        <?php include_once( URL_HEADER ) ?>
+        <?php include_once( URL_SLIDE ) ?>
+    <main class="page-main">
     <form method="post" action="trip_update.php">
         <div class="main_form">
             <h2> UPDATE </h2>
@@ -76,11 +76,11 @@ else{
         <div class="button_group">
             <button type="submit" class="button_write">수정</button>
             <button type="button" class="button_back"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
-		</div>
+        </div>
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>
     </main>
-</div>
-    <?php include_once( URL_FOOTER ) ?>     <!-- 푸 터 -->
+    </div>
+        <?php include_once( URL_FOOTER ) ?>
 </body>
 </html>

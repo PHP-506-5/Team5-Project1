@@ -59,7 +59,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<title>여행 정보</title>
+	<title>Trip List</title>
 	<link rel="stylesheet" href="../css/list.css">
 	<link rel="stylesheet" href="../css/font.css">
 	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
@@ -110,7 +110,7 @@
 				<td id="td3">
 					<a href="trip_detail.php?trip_no=<?php echo $recode["trip_no"] ?>&page_num=<?php echo $page_num ?>">
 					<?php if($recode["trip_com"]==1){ ?>
-						<div id="div1"><span id="span1"><?php echo $recode["trip_title"]?></span></div>
+						<div id="div1"><span><?php echo $recode["trip_title"]?></span></div>
 						<?php }else{ ?>
 						<div id="div2"><?php echo $recode["trip_title"];
 					}?></div>

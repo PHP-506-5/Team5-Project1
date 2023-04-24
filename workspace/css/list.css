@@ -1,3 +1,6 @@
+*{
+    font-family: 'SBAggroB';
+}
 #img{
     background-image: url("../image/img01.jpg");
     background-repeat: no-repeat;
@@ -57,7 +60,6 @@ td{
     width: 200px;
     height: 80px;
     margin-top: 20px;
-    font-family: 'Gothic A1', sans-serif;
     font-weight: bolder;
 }
 #choose{
@@ -110,7 +112,6 @@ form{
     margin-top: -170px;   
     display: flex;
     flex-wrap: nowrap;
-    font-family: 'Dovemayo_gothic';
 }
 #select{
     margin-left: 5px;
@@ -121,12 +122,4 @@ th,#div1,#div2,#div4{
 }
 #choosebut>a{
     margin-left: 10px;
-}
-th{
-    font-family: 'TheJamsil5Bold';
-    font-size: larger;
-    font-weight: bold;
-}
-#td1{
-    font-family: 'yg-jalnan';
 }

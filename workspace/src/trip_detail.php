@@ -51,7 +51,7 @@ $result_com = $trip_com[0]["trip_com"]
             <a href="trip_detail.php?trip_no=<?php echo $front_page ?>"> <span class ="front_b">◀</span> </a>
             <?php } ?>
             <article>
-                <p> 도시 <span> <?php echo $result["trip_city"]?> </span></p>
+                <p class="city"> 도시 <span> <?php echo $result["trip_city"]?> </span></p>
                 <p> 비용 <span> <?php echo $result["trip_price"]?> </span></p>
                 <p> 날짜 <span> <?php echo $result["trip_date"]?> </span></p>
                 <p> 내용 <div class="contents"> <div><?php echo $result["trip_contents"]?> </div></div></p>

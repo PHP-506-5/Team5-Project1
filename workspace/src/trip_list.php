@@ -62,7 +62,6 @@
 	<title>Trip List</title>
 	<link rel="stylesheet" href="../css/list.css">
 	<link rel="stylesheet" href="../css/font.css">
-	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../css/com_footer.css">
 	
 </head>

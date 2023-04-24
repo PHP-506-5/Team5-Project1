@@ -49,6 +49,7 @@ else{
     <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_slide.css">
     <link rel="stylesheet" href="../css/com_footer.css">
+    <link rel="stylesheet" href="../css/font.css">
 </head>
 <body>
     <div class="parent">

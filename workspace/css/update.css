@@ -1,3 +1,8 @@
+body{
+    max-width: 1800px;
+    max-height: 1400px;
+    margin: 0 auto;
+}
 .parent { /* 전체 */
     width: 1800;
     display: grid;
@@ -12,6 +17,7 @@
     background-color: #f5f1eb;
     width : 1400px;
     height: 100%;
+    font-family: 'Pretendard-Regular';
 }
 .main_form{
     background-color: #ffffff;
@@ -24,11 +30,6 @@
     margin-top: 60px;
     line-height: 50px;
     box-shadow: 1px 1px 5px #ccc;
-}
-body{
-    max-width: 1800px;
-    max-height: 1400px;
-    margin: 0 auto;
 }
 #contents{
     width: 600px;
@@ -49,6 +50,11 @@ button{
     width: 100px;
     height: 30px;
     border-radius: 20px;
+    font-size: medium;
+    font-family: 'Dovemayo_gothic';
+}
+button:hover{
+    background-color: #d6edf5;
 }
 .button_group{
     display: flex;
@@ -68,6 +74,7 @@ a{
 input{
     border:none;
     border-bottom: 1px solid black;
+    height: 35px;
 }
 input:focus{
     outline: none;

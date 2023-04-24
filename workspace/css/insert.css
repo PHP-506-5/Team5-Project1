@@ -17,7 +17,7 @@ main{
     background-color: #f5f1eb;
     width : 1400px;
     height: 100%;
-    font-family: 'GangwonEdu_OTFBoldA';
+    font-family: 'Pretendard-Regular';
 }
 .main_form{
     background-color: #ffffff;
@@ -52,6 +52,9 @@ button{
     border-radius: 20px;
     font-size: medium;
     font-family: 'Dovemayo_gothic';
+}
+button:hover{
+    background-color: #d6edf5;
 }
 .button_write{
     background-color: #90e0ef;

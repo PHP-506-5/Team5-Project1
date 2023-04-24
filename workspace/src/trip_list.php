@@ -129,18 +129,17 @@
 		</table>
 
 
-		<!-- 페이징 번호 -->
 		<div id="choosebut">
-			<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>"class="btn btn-outline-secondary">◀</a>
+			<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>#tag"class="btn btn-outline-secondary">◀</a>
 		<?php
 			for( $i = 1; $i <= $max_page_num; $i++ )
 			{
 		?>
-				<a href="trip_list.php?page_num=<?php echo $i ?>" class="btn btn-outline-secondary"><?php echo $i ?></a>
+				<a href="trip_list.php?page_num=<?php echo $i ?>#tag" class="btn btn-outline-secondary"><?php echo $i ?></a>
 		<?php
 			}
 		?>
-			<a href="trip_list.php?page_num=<?php echo $next_page_num ?>"class="btn btn-outline-secondary">▶</a>
+			<a href="trip_list.php?page_num=<?php echo $next_page_num ?>#tag"class="btn btn-outline-secondary">▶</a>
 		</div>
 	</div>
 		<?php include_once( URL_FOOTER ) ?>

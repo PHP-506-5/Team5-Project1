@@ -2,7 +2,6 @@ body {
     max-width: 1800px;
     max-height: 1400px;
     margin: 0 auto;
-    /* height: 100vh; */
 }
 .all{
     width:100%;
@@ -18,6 +17,7 @@ main{
     background-color: #f5f1eb;
     width : 1400px;
     height: 100%;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 .main_form{
     background-color: #ffffff;
@@ -51,6 +51,7 @@ button{
     height: 30px;
     border-radius: 20px;
     font-size: medium;
+    font-family: 'Dovemayo_gothic';
 }
 .button_write{
     background-color: #90e0ef;
@@ -89,9 +90,6 @@ h2{
 	margin:-20px 0 20px 30px;
 /* 	margin-left:30px; */
 	margin-bottom:20px;
-}
-.lable_price{
-    margin-right: 10px;
 }
 #title{
     width: 300px;

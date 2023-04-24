@@ -10,6 +10,10 @@ $http_method = $_SERVER["REQUEST_METHOD"];
 
 if($http_method === "POST"){
     $arr_post=$_POST;
+
+    if(empty($_POST['trip_price'])) { // trip_price 필드가 비어있는 경우
+        $arr_post['trip_price'] = null; }// 디폴트 값으로 null 할당
+
     $result_cnt = insert_trip_info($arr_post);
     $trip_no=trip_info_no_max();
     $max_trip_no = ceil( (int)$trip_no[0]["max"]);
@@ -30,6 +34,7 @@ if($http_method === "POST"){
     <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_slide.css">
     <link rel="stylesheet" href="../css/insert.css">
+    <link rel="stylesheet" href="../css/font.css">
     <title> 여행 일정 작성 </title>
 </head>
 <body>
@@ -48,7 +53,7 @@ if($http_method === "POST"){
                     <label for="city"> 도시 </label>
                     <input type="text" name="trip_city" id="city" required autofocus>
                     <label for="price" class="lable_price"> 비용 </label>
-                    <input type="number" name="trip_price" id="price" required step="100">
+                    <input type="number" name="trip_price" id="price" step="100">
                     <br>
                     <label for="data"> 날짜 </label>
                     <input type="datetime-local" name="trip_date" id="date">

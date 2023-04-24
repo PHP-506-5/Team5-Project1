@@ -1,6 +1,6 @@
-*{
+/* *{
     font-family: 'SBAggroB';
-}
+} */
 #img{
     background-image: url("../image/지주.gif");
     background-repeat: no-repeat;
@@ -125,4 +125,7 @@ th,#div1,#div2,#div4{
 }
 span{
     text-decoration: line-through;
+}
+#first,#listpage,table,#choosebut{
+    font-family: 'SBAggroB';
 }

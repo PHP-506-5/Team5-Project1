@@ -1,11 +1,11 @@
-*{
+/* *{
     font-family: 'SBAggroB';
-}
+} */
 #img{
     background-image: url("../image/지주.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    width:60%;
+    width:67%;
     height:1050px;
 }
 #first{
@@ -16,7 +16,7 @@
     font-size:80px;
     font-weight: 700;
     text-align:center;
-    width:40%;
+    width:33%;
     margin-top:230px;
     vertical-align: baseline;
 }
@@ -124,7 +124,11 @@ th,#div1,#div2,#div4{
 }
 #choosebut>a{
     margin-left: 10px;
+    margin-top: 30px;;
 }
 span{
     text-decoration: line-through;
+}
+#first,#listpage,table,#choosebut{
+    font-family: 'SBAggroB';
 }

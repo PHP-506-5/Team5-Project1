@@ -7,9 +7,10 @@ define("URL_FOOTER", DOC_ROOT . "/workspace/src/trip_footer.php" );
 
 include_once(URL_DB);
 
-    $http_method = $_SERVER["REQUEST_METHOD"];
+//HTTP 요청 메소드가 GET 인지 POST 인지 확인
+$http_method = $_SERVER["REQUEST_METHOD"];
 
-// GET 일때
+//GET일 경우, $_GET에서 trip_no를 가져와 해당 번호에 해당하는 여행 정보를 조회
 if( $http_method === "GET" )
 {
     $trip_no = 1;
@@ -19,6 +20,7 @@ if( $http_method === "GET" )
     }
     $result_info = select_trip_info_no( $trip_no );
 }
+//POST일 경우, $_POST에서 여행 정보를 가져와 해당 번호에 해당하는 여행 정보를 업데이트
 else{
     $arr_post=$_POST;
     $arr_info = array(
@@ -29,10 +31,8 @@ else{
         "trip_price" => $arr_post["trip_price"],
         "trip_contents" => $arr_post["trip_contents"]
     );
-
-    // update
     $result_cnt = update_trip_info_no( $arr_info );
-
+    //POST 요청을 받았을 때, 해당하는 trip_no 값으로 trip_detail.php 페이지로 리다이렉션하는 역할
     header("Location: trip_detail.php?trip_no=" . $arr_post["trip_no"]);
     exit();
 }

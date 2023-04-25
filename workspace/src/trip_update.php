@@ -44,7 +44,7 @@ else{
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trip_update</title>
+    <title>여행 일정 수정</title>
     <link rel="stylesheet" href="../css/update.css">
     <link rel="stylesheet" href="../css/com_header.css">
     <link rel="stylesheet" href="../css/com_slide.css">
@@ -68,15 +68,17 @@ else{
             <input type="number" name="trip_price" id="price"  required step="100" value="<?php echo $result_info["trip_price"] ?>">
             <br>
             <label for="data"> 날짜 </label>
-            <input type="datetime-local" name="trip_date" id="date" value="<?php echo $result_info["trip_date"] ?>">
+            <input type="datetime-local" name="trip_date" id="date" required value="<?php echo $result_info["trip_date"] ?>">
             <br>
             <label for="contents"> 내용 </label>
             <textarea rows="10" cols="80" name="trip_contents" id="contents"><?php echo $result_info["trip_contents"] ?></textarea>
-            <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"] ?>">
+            <input type="hidden" name="trip_no" required value="<?php echo $result_info["trip_no"] ?>">
         </div>
+
         <div class="button_group">
-            <button type="submit" class="button_write">수정</button>
-            <button type="button" class="button_back"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
+            <!-- <button type="button"><a href="trip_list.php#tag">리스트</a></button> -->
+            <button type="submit" class="button_up">수정</button>
+            <button type="button" class="button_comp"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
         </div>
             <input type="hidden" name="trip_no" value="<?php echo $result_info["trip_no"]?>">
     </form>

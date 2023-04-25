@@ -50,7 +50,9 @@ button{
     width: 100px;
     height: 30px;
     border-radius: 20px;
+    background-color: white;
     font-size: medium;
+    margin:5px;
     font-family: 'Dovemayo_gothic';
 }
 button:hover{
@@ -59,14 +61,13 @@ button:hover{
 .button_group{
     display: flex;
     justify-content: flex-end;
-    margin: 20px 350px 0  0;
+    margin: 20px 300px 0  0;
 }
 .button_write{
     background-color: #90e0ef;
-    margin-right: 10px;
 }
-.button_back{
-    background-color: white;
+.button_up{
+    background-color: #90e0ef;
 }
 a{
     text-decoration: none;

@@ -116,6 +116,7 @@
 // 기능		: 특정 정보 확인
 // 파라미터	: INT		&$param_no
 // 리턴값	: Array		$result
+// 작성자   : 박진영
 // ---------------------------------
 function select_trip_info_no(&$param_no)
 {
@@ -151,15 +152,13 @@ function select_trip_info_no(&$param_no)
     }
     return $result[0];
 }
-
-// $arr = array("trip_no" => 2);
-// $resultt = select_trip_info_no($arr["trip_no"]);
-// print_r($resultt);
-
-//함수명    : update_trip_info_no
-//기능      : 게시판 특정 게시글 정보 수정
-//파라미터  : Array             &$param_arr
-//리턴값    : INT/STRING        $result_cnt/ERRMSG
+//------------------------------------------------
+// 함수명    : update_trip_info_no
+// 기능      : 게시판 특정 게시글 정보 수정
+// 파라미터  : Array             &$param_arr
+// 리턴값    : INT/STRING        $result_cnt/ERRMSG
+// 작성자    : 박진영
+//------------------------------------------------
 function update_trip_info_no( &$param_arr )
 {   
     $sql=
@@ -186,11 +185,11 @@ function update_trip_info_no( &$param_arr )
             );
         $conn = null;
         try{
-            db_conn( $conn ); //db연결
-            $conn->beginTransaction(); //transaction 시작
-            $stmt = $conn->prepare( $sql );//statement object 셋팅
-            $stmt->execute( $arr_prepare );//db request
-            $result_cnt = $stmt->rowCount();//query 적용 recode 갯수
+            db_conn( $conn );
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $result_cnt = $stmt->rowCount();
             $conn->commit();
         }
         catch( Exception $e)

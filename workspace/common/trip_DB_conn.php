@@ -127,6 +127,7 @@ function select_trip_info_no(&$param_no)
         . " ,trip_date "
         . " ,trip_price "
         . " ,trip_contents "
+        . " ,trip_com"
         . " FROM "
         . " trip_info "
         . " WHERE "
@@ -265,15 +266,15 @@ function insert_trip_info(&$param_arr){
 // 리턴값	  :  int   $result_cnt
 // 제작자     :  김진아
 // ---------------------------------------------
-function detail_complete_trip_info( &$param_no){
+function detail_complete_trip_info( &$param_arr){
     $sql = " UPDATE "
         ." trip_info "
         ." SET "
-        ." trip_com = '1'"
+        ." trip_com = :trip_com"
         ." WHERE "
         ." trip_no = :trip_no";
 
-    $arr_prepare =array(":trip_no" => $param_no);
+    $arr_prepare =array(":trip_com"=>$param_arr["trip_com"],":trip_no" => $param_arr["trip_no"]);
 
     $conn = null;
     try {
@@ -327,37 +328,4 @@ function trip_info_no_max(){
     return $result;
 }
 
-// ----------------------------------------------------
-// 상세페이지에서 완료 미완료를 확인할수있게 하는 함수 작성
-// 함수명    : select_trip_com_info
-// 기능      : 해당하는 trip_no의 com값을 가져온다.
-// 파라미터  : int     &$param_no
-// 리턴값    : int     $result
-// 제작      : 김진아
-// ----------------------------------------------------
-function select_trip_info_com(&$param_no){
-    $sql = " SELECT "
-        ." trip_com "
-        ." FROM trip_info "
-        ." WHERE "
-        ." trip_no = :trip_no";
-
-    $arr_prepare = array(":trip_no" => $param_no);
-
-    $conn=null;
-    try {
-        db_conn($conn);
-        $stmt = $conn->prepare( $sql );
-        $stmt->execute( $arr_prepare );
-        $result = $stmt->fetchall();
-    } 
-    catch ( Exception $e) {
-        return $e->getMessage();
-    }
-    finally{
-        $conn = null;
-    }
-    return $result;
-}
-
-    ?>
+?>

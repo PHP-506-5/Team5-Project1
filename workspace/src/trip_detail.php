@@ -13,8 +13,7 @@ $back_page =  $result["trip_no"]+1;
 $result_max = trip_info_no_max();
 $max_trip_no = ceil( (int)$result_max[0]["max"]);
 
-$trip_com = select_trip_info_com($arr_get["trip_no"]);
-$result_com = $trip_com[0]["trip_com"]
+$result_com = $result["trip_com"];
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +35,7 @@ $result_com = $trip_com[0]["trip_com"]
         <br>
         <div class="title_group">
             <?php if (isset($result_com)) {
-                    if ($result_com == 0 || $result_com == 2) { ?>
+                    if ($result_com == 2) { ?>
                         <h2><?php echo $result["trip_title"]?></h2>
                         <div class="trip_com"> 미완료 </div>
                     <?php } else if ($result_com == 1) { ?>
@@ -64,7 +63,12 @@ $result_com = $trip_com[0]["trip_com"]
         <div class ="button_group">
             <button type="button"><a href="trip_list.php#tag">리스트</a></button>
             <button type="button" class="button_up"><a href="trip_update.php?trip_no=<?php echo $result["trip_no"] ?>"> 수정</a></button>
-            <button type="button" class="button_comp"><a href="trip_complete.php?trip_no=<?php echo $result["trip_no"] ?>">완료</a></button>
+            <?php if($result_com==0 || $result_com==2){ ?>
+                <button type="button" class="button_comp"><a href="trip_complete.php?trip_no=<?php echo $result["trip_no"] ?>">완료</a></button>
+            <?php } 
+            else if($result_com==1){?>
+            <button type="button" class="button_comp"><a href="trip_complete.php?trip_no=<?php echo $result["trip_no"] ?>">미완료</a></button>
+            <?php }?>
         </div>
     </main>
     

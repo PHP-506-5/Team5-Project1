@@ -3,7 +3,6 @@
 	define( "URL_DB", DOC_ROOT."workspace/common/trip_DB_conn.php" );
 	define( "URL_FOOTER" , DOC_ROOT."workspace/src/trip_footer.php");
 	include_once( URL_DB );
-	$http_method=$_SERVER["REQUEST_METHOD"];
 
 	if( array_key_exists( "page_num", $_GET ) )
 	{
@@ -13,6 +12,7 @@
 	{
 		$page_num = 1;
 	}
+
 
 	$limit_num = 5;
 
@@ -120,7 +120,7 @@
 				include_once("gap_time.php");
 				if (gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) <= 0100 && gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) >= 0000) {
 				?>
-					<td style="color:blue;"><?php echo $recode["trip_date"]; ?></td>
+					<td id="h1"><div id="div3"><?php echo $recode["trip_date"] ?></div></td>
 				<?php } else { ?>
 					<td id="td4"><div id="div4"><?php echo $recode["trip_date"] ?></div></td>
 				<?php } ?>

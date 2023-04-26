@@ -22,7 +22,7 @@ $arr_info = array(
     ,"trip_no" => $arr_get
 );
 
-// $result["trip_com"]으로 trip_com값을 받아와 1일때는 2를 2일때는 1로 바꾼다.
+// $result["trip_com"]으로 trip_com값을 받아와 1일때는 2로 2일때는 1로 바꾼다.
 
 $result_cnt = detail_complete_trip_info( $arr_info );
 

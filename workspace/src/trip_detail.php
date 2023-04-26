@@ -5,9 +5,9 @@ define( "URL_HEADER", DOC_ROOT."workspace/src/trip_header.php" );
 define( "URL_FOOTER", DOC_ROOT."workspace/src/trip_footer.php" );
 include_once( URL_DB );
 // 사용자 정의 상수를 통해 서버상의 경로를 고정값으로 만들어준다.
-// 만들어준 상수를 include를 통해 포함시킨다.
+// 만들어준 상수를 include한다.
 
-$arr_get = $_GET; // get변수를 값이 변하지않게 따로 변수에 담아둔다.
+$arr_get = $_GET; 
 $result = select_trip_info_no($arr_get["trip_no"]); 
 // get의 통해 받은 여행번호를 파라미터로 함수에 넘겨서 담긴 정보를 result 변수에 담아둔다.
 
@@ -50,12 +50,13 @@ $result_com = $result["trip_com"];
                     <?php }
                 } ?>
         </div>
-        <!-- 먼저 $result_com[0]["trip_com"] 에 값이 있는지 확인하고 2이면 미완료 1이면 완료가 뜨게 하는 코드 -->
+        <!-- 먼저 $result_com에 값이 있는지 확인하고 2이면 미완료 1이면 완료가 뜨게 하는 코드 -->
+
         <div class ="main_group">
             <?php if($result["trip_no"]>1) { ?>
             <a href="trip_detail.php?trip_no=<?php echo $front_page ?>"> <span class ="front_b">◀</span> </a>
             <?php } ?>
-            <!-- $result["trip_no"] 값이 1보다 클때만 앞페이지로 이동하게하게 해주는 함수 -->
+            <!-- $result["trip_no"] 값이 1보다 클때만 앞페이지로 이동하게하게 해준다. -->
             <article>
                 <!-- $result 로 부터 정보를 가져온다. -->
                 <p class="city"> 도시 <span> <?php echo $result["trip_city"]?> </span></p>
@@ -80,8 +81,7 @@ $result_com = $result["trip_com"];
         </div>
         <!-- 리스트부분으로 이동하게 해주는 리스트 버튼
         $result["trip_no"]에서 여행번호를 받아와 해당하는 수정페이지로 이동하게 해주는 수정버튼
-        $result["trip_no"]에서 여행번호를 받아와 해당하는 정보의 글을 완료로 만들어주고
-        complete.php를 통해 리스트로 이동하는 완료버튼 -->
+        $result["trip_no"]에서 여행번호를 받아와 해당하는 complete.php를 통해 리스트로 이동하는 완료버튼 -->
     </main>
     
     <?php include_once( URL_FOOTER );?>

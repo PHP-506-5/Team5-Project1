@@ -75,7 +75,6 @@ else{
         </div>
 
         <div class="button_group">
-            <!-- <button type="button"><a href="trip_list.php#tag">리스트</a></button> -->
             <button type="submit" class="button_up">수정</button>
             <button type="button" class="button_comp"><a href="trip_detail.php?trip_no=<?php echo $result_info["trip_no"] ?>" class="button_back">취소</a></button>
         </div>

@@ -8,7 +8,7 @@ $arr_get = $_GET["trip_no"];
 // 정보에 대한 주소를 사용하여야 하기때문에 get사용한다.
 
 $result = select_trip_info_no($arr_get);
-// get에서 여행 번호를 받아와 함수의 파라미터에 값을 넘겨준다.
+// get에서 여행 번호를 받아와 함수의 파라미터로 값을 넘겨준다.
 
 if( $result["trip_com"] == 1 ){
     $new_trip_com = '2';
@@ -22,9 +22,9 @@ $arr_info = array(
     ,"trip_no" => $arr_get
 );
 
-// $result["trip_com"]으로 trip_com값을 받아와 1일때는 2로 2일때는 1로 바꾼다.
-
 $result_cnt = detail_complete_trip_info( $arr_info );
+
+// $result["trip_com"]으로 trip_com값을 받아와 1일때는 2로 2일때는 1로 바꾼다.
 
 header("Location: trip_list.php#tag");
 exit();

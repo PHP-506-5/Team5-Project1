@@ -4,8 +4,7 @@ define( "URL_DB",DOC_ROOT."workspace/common/trip_DB_conn.php" );
 define( "URL_HEADER", DOC_ROOT."workspace/src/trip_header.php" );
 define( "URL_FOOTER", DOC_ROOT."workspace/src/trip_footer.php" );
 include_once( URL_DB );
-// 사용자 정의 상수를 통해 서버상의 경로를 고정값으로 만들어준다.
-// 만들어준 상수를 include한다.
+// 상수를 정의하고 만들어준 상수를 include한다.
 
 $arr_get = $_GET; 
 $result = select_trip_info_no($arr_get["trip_no"]); 
@@ -17,7 +16,7 @@ $back_page =  $result["trip_no"]+1;
 
 $result_max = trip_info_no_max();  // 최대값을 저장한다.
 $max_trip_no = ceil( (int)$result_max[0]["max"]); 
-// 배열형태로 저장된 변수의 값을 int형태로 바꾼뒤 소수점을 제거하고 숫자만 가져온다.
+// 배열형태로 저장된 변수의 값을 int형태로 바꾼뒤 올림하여 값을 가져옵니다.
 
 $result_com = $result["trip_com"];
 ?>

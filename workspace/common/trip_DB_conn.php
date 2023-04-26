@@ -39,7 +39,7 @@
         ." , trip_com "
         ." FROM trip_info ";
         
-        if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
+        if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){ //param_arr["trip_com"] 값이 있는지 확인하고 있으면 sql에 where값 붙여줌
             $sql .= " WHERE trip_com=:trip_com ";
         }
         

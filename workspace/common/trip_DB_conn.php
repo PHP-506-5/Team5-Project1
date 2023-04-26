@@ -118,9 +118,9 @@
 // 리턴값	: Array		$result
 // 작성자   : 박진영
 // ---------------------------------
-function select_trip_info_no(&$param_no)
+function select_trip_info_no(&$param_no)// $param_no를 참조하는 select_trip_info_no 함수 선언
 {
-    $sql =
+    $sql =  // SQL 쿼리문 작성
         "SELECT "
         . " trip_no "
         . " ,trip_city "
@@ -134,23 +134,23 @@ function select_trip_info_no(&$param_no)
         . " WHERE "
         . " trip_no = :trip_no "
     ;
-
+    // 쿼리문 실행에 필요한 파라미터 배열 생성
     $arr_prepare = array(
         ":trip_no" => $param_no
     );
 
-    $conn = null;
+    $conn = null;                       // 데이터베이스 연결
     try {
-        db_conn($conn);
-        $stmt = $conn->prepare($sql);
-        $stmt->execute($arr_prepare);
-        $result = $stmt->fetchAll();
-    } catch (Exception $e) {
+        db_conn($conn);                 // db_conn 함수 호출하여 DB 연결
+        $stmt = $conn->prepare($sql);   // PDO Statement 객체 생성
+        $stmt->execute($arr_prepare);   // SQL 실행
+        $result = $stmt->fetchAll();    // 결과값 반환
+    } catch (Exception $e) {            // 예외처리
         return $e->getMessage();
-    } finally {
+    } finally {                         // DB 연결 종료
         $conn = null;
     }
-    return $result[0];
+    return $result[0];                  // 결과값 중 첫 번째 레코드 반환
 }
 //------------------------------------------------
 // 함수명    : update_trip_info_no
@@ -159,9 +159,9 @@ function select_trip_info_no(&$param_no)
 // 리턴값    : INT/STRING        $result_cnt/ERRMSG
 // 작성자    : 박진영
 //------------------------------------------------
-function update_trip_info_no( &$param_arr )
+function update_trip_info_no( &$param_arr ) //&$param_arr를 수정하는 update_trip_info_no 함수 선언
 {   
-    $sql=
+    $sql=   // SQL 쿼리문 작성
         " UPDATE "
         ." trip_info "
         ." SET "
@@ -173,7 +173,7 @@ function update_trip_info_no( &$param_arr )
         ." WHERE "
         ." trip_no =:trip_no "
         ;
-        $arr_prepare = 
+        $arr_prepare = // 쿼리문 실행에 필요한 파라미터 배열 생성
             array(  
                 ":trip_city"=>$param_arr["trip_city"]
                 ,":trip_title"=>$param_arr["trip_title"]
@@ -183,25 +183,25 @@ function update_trip_info_no( &$param_arr )
                 ,":trip_no" => $param_arr["trip_no"]   
 
             );
-        $conn = null;
-        try{
+        $conn = null;                       // 데이터베이스 연결
+        try{                                // 트랜잭션 시작
             db_conn( $conn );
             $conn->beginTransaction();
             $stmt = $conn->prepare( $sql );
             $stmt->execute( $arr_prepare );
-            $result_cnt = $stmt->rowCount();
-            $conn->commit();
+            $result_cnt = $stmt->rowCount(); // 변경된 행의 수 반환
+            $conn->commit();                 // 트랜잭션 커밋
         }
         catch( Exception $e)
         {
-            $conn-> rollback();
-            return $e->getMessage();
+            $conn-> rollback();             // 트랜잭션 롤백
+            return $e->getMessage();        // 예외 처리
         }
         finally
         {
-            $conn=null;
+            $conn=null;                     // 연결 종료
         }
-        return $result_cnt;    
+        return $result_cnt;                 // 업데이트된 행의 수 반환
 }
 
 // ---------------------------------

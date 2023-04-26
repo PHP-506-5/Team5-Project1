@@ -1,13 +1,13 @@
 <?php
     function gap_time($start_date, $end_date) {
 	
-        $start_time = strtotime($start_date);
+        $start_time = strtotime($start_date); // 문자형 날짜를 초로 바꾸어 계산 해주는 함수
         $end_time = strtotime($end_date);
 
         $diff = $end_time - $start_time;
 
-        $hours = floor($diff/3600);
-        $min = floor($diff/60);
+        $hours = floor($diff/3600); // 몫을 시간으로 가져옴
+        $min = floor($diff/60); // 몫을 분으로 가져옴
     
         return sprintf("%d%d", $hours, $min); 
     }

@@ -8,8 +8,6 @@
     
         $hours = floor($diff/3600);
     
-        $diff = $diff-($hours*3600);
-    
         $min = floor($diff/60);
     
         return sprintf("%d%d", $hours, $min); 

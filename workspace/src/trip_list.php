@@ -4,7 +4,7 @@
 	define( "URL_FOOTER" , DOC_ROOT."workspace/src/trip_footer.php");
 	include_once( URL_DB );
 
-	if( array_key_exists( "page_num", $_GET ) )
+	if( array_key_exists( "page_num", $_GET ) )// get 방식으로 넘버를 받아와서 $_GET에 page_num할당 없을 시 1 할당
 	{
 		$page_num = $_GET["page_num"];
 	}
@@ -14,11 +14,11 @@
 	}
 
 
-	$limit_num = 5;
+	$limit_num = 5; // 한 페이지에 보여줄 리스트 값
 
-	$offset = ( $page_num * $limit_num ) - $limit_num;
+	$offset = ( $page_num * $limit_num ) - $limit_num; // offset으로 몇번부터 몇번까지 보여줄지 지정
 
-	$post=isset($_POST["current"])?$_POST["current"] : false;
+	$post=isset($_POST["current"])?$_POST["current"] : false; // post로 받아온 값에 따른 trip_com 지정 0일 경우 전체를 받아옴
 		if($post=='0'){
 			$arr_prepare = array(
 				"limit_num" => $limit_num
@@ -46,9 +46,9 @@
 			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
 		}
 
-	$result_paging = select_trip_info_paging_all( $arr_prepare );
+	$result_paging = select_trip_info_paging_all( $arr_prepare ); //각 각 array를 받은 함수에 전체 값에 따른 result_paging지정
 
-	$prev_page_num = $page_num - 1 > 0 ? $page_num - 1 : 1;
+	$prev_page_num = $page_num - 1 > 0 ? $page_num - 1 : 1; // 최대, 최소 번호를 받아서 다음 페이지로 넘어갈지 말지 연산
 	$next_page_num = $page_num + 1 > $max_page_num ? $max_page_num : $page_num + 1;
 ?>
 
@@ -75,12 +75,14 @@
 			<a href="trip_insert.php" id="go">작성 시작하기</a>
 		</div>
 			<br>
-			<div id=img2><a href="#tag"><img src="비행기.png" alt=""></a></div>
+			<!-- 비행기 클릭 시 하단 부로 내려감 -->
+			<div id=img2><a href="#tag"><img src="비행기.png" alt=""></a></div> 
 		</div>
 			
 		</div>
 	
 <div id="listpage">
+	<!-- 셀릭트 박스 버튼을 누르면 post로 값 넘겨줌 -->
     <form method="POST" action="">
         <select name="current" class="form-select">
             <option value="0">전체</option>
@@ -117,6 +119,7 @@
 					<a id="tag"></a>
 				</td>
 				<?php
+				// 값이 1시간 이하로 남으면 색을 바꿔줌
 				include_once("gap_time.php");
 				if (gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) <= 0100 && gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) >= 0000) {
 				?>
@@ -131,6 +134,7 @@
 
 
 		<div id="choosebut">
+			<!-- 버튼을 눌러도 하단에 고정해 주게 만들어주고 다음페이지로 넘어가는 버튼구현 -->
 			<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>#tag"class="btn btn-outline-secondary">◀</a>
 		<?php
 			for( $i = 1; $i <= $max_page_num; $i++ )

@@ -19,7 +19,7 @@ if($http_method === "POST"){ // post일경우
 
     $trip_no=trip_info_no_max(); // 변수에 받아온 여행번호의 최대값을 저장한다.
     $max_trip_no = ceil( (int)$trip_no[0]["max"]); 
-    // 배열형태로 저장된 변수의 값을 int형태로 바꾼뒤 소수점을 제거하고 숫자만 가져온다.
+    // 배열형태로 저장된 변수의 값을 int형태로 바꾼뒤 올림하여 값을 가져옵니다.
     header("Location: trip_detail.php?trip_no=" . $max_trip_no);
     exit();
     // 최대 여행번호를 가진 디테일페이지로 이동하게 해준다.

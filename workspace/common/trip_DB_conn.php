@@ -43,8 +43,9 @@
             $sql .= " WHERE trip_com=:trip_com ";
         }
         
-        $sql .= " ORDER  BY " 
-        ." trip_no ASC "
+        $sql .= 
+        " ORDER BY"
+        ." trip_com DESC"
         ." LIMIT :limit_num OFFSET :offset "
         ;      
         
@@ -70,7 +71,7 @@
         }
         return $result;
     }
-    
+
     /*-------------------------------
     특정 변수가 들어오면 그 변수 전체값 가져오는 함수
     함수명 : select_trip_info_paging_cnt

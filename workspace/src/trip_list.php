@@ -48,7 +48,7 @@
 
 	$result_paging = select_trip_info_paging_all( $arr_prepare ); //각 각 array를 받은 함수에 전체 값에 따른 result_paging지정
 
-	$prev_page_num = $page_num - 1 > 0 ? $page_num - 1 : 1; // 최대, 최소 번호를 받아서 다음 페이지로 넘어갈지 말지 연산
+	$prev_page_num = $page_num - 1 > 0 ? $page_num - 1 : 1; // 이전, 다음페이지 번호 연산
 	$next_page_num = $page_num + 1 > $max_page_num ? $max_page_num : $page_num + 1;
 ?>
 

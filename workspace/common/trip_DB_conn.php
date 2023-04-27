@@ -25,7 +25,7 @@
     페이징 넘버 가져오는 함수 작성
     함수명 : select_trip_info_paging_all
     기능   : 정보 모두 가져오면서 com여부 확인
-    리턴값 : int $result
+    리턴값 : array $result
     제작자 : 김영범
     ----------------------------------*/
     function select_trip_info_paging_all( &$param_arr ){
@@ -45,7 +45,8 @@
         
         $sql .= 
         " ORDER BY"
-        ." trip_com DESC"
+        ." trip_com DESC "
+        ." ,trip_no ASC "
         ." LIMIT :limit_num OFFSET :offset "
         ;      
         
@@ -53,8 +54,13 @@
             ":limit_num"  => $param_arr["limit_num"]
             ,":offset"    => $param_arr["offset"]
         );    
+
         if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
-            $arr_prepare[":trip_com"] = $param_arr["trip_com"];
+            $arr_prepare = array(
+                ":limit_num"  => $param_arr["limit_num"]
+                ,":offset"    => $param_arr["offset"]
+                ,":trip_com"  => $param_arr["trip_com"]
+            );    
         }
     
         $conn = null;
@@ -92,7 +98,9 @@
             }
             $arr_prepare=array();
             if(isset($param_arr["trip_com"]) && $param_arr["trip_com"] !== ""){
-                $arr_prepare[":trip_com"] = $param_arr["trip_com"];
+                $arr_prepare=array(
+                                    ":trip_com" => $param_arr["trip_com"]
+                );
             }
     
             

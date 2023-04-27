@@ -16,35 +16,31 @@
 
 	$limit_num = 5; // 한 페이지에 보여줄 리스트 값
 
-	$offset = ( $page_num * $limit_num ) - $limit_num; // offset으로 몇번부터 몇번까지 보여줄지 지정
+	$offset = ( $page_num * $limit_num ) - $limit_num; // offset으로 몇번부터 보여줄지 지정
 
-	$post=isset($_POST["current"])?$_POST["current"] : false; // post로 받아온 값에 따른 trip_com 지정 0일 경우 전체를 받아옴
-		if($post=='0'){
+	$get=isset($_GET["current"])?$_GET["current"] : false; // post로 받아온 값에 따른 trip_com 지정 0일 경우 전체를 받아옴
+		if($get=='0'){
 			$arr_prepare = array(
 				"limit_num" => $limit_num
 				,"offset" => $offset
 			);
-			$result_cnt = select_trip_info_cnt($arr_prepare);
-			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
 
-		}else if($post=='1'){
+		}else if($get=='1'){
 			$arr_prepare = array(
 				"limit_num" => $limit_num
 				,"offset" => $offset
-				,"trip_com" => 1
+				,"trip_com" => '1'
 			);
-			$result_cnt = select_trip_info_cnt($arr_prepare);
-			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );	
 			
-		}else{
+		}else if($get=='2'){
 			$arr_prepare = array(
 				"limit_num" => $limit_num
 				,"offset" => $offset
-				,"trip_com" => 2
+				,"trip_com" => '2'
 			);
-			$result_cnt = select_trip_info_cnt($arr_prepare);
-			$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
 		}
+	$result_cnt = select_trip_info_cnt($arr_prepare);
+	$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
 
 	$result_paging = select_trip_info_paging_all( $arr_prepare ); //각 각 array를 받은 함수에 전체 값에 따른 result_paging지정
 
@@ -83,7 +79,7 @@
 	
 <div id="listpage">
 	<!-- 셀릭트 박스 버튼을 누르면 post로 값 넘겨줌 -->
-    <form method="POST" action="">
+    <form method="get" action="">
         <select name="current" class="form-select">
             <option value="0">전체</option>
             <option value="1">완료</option>
@@ -121,7 +117,7 @@
 				<?php
 				// 값이 1시간 이하로 남으면 색을 바꿔줌
 				include_once("gap_time.php");
-				if (gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) <= 0100 && gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) >= 0000) {
+				if (gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) <= 100 && gap_time(date("Y-m-d H:i:s"), $recode["trip_date"]) >= 0000) {
 				?>
 					<td id="h1"><div id="div3"><?php echo $recode["trip_date"] ?></div></td>
 				<?php } else { ?>
@@ -134,17 +130,28 @@
 
 
 		<div id="choosebut">
-			<!-- 버튼을 눌러도 하단에 고정해 주게 만들어주고 다음페이지로 넘어가는 버튼구현 -->
-			<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>#tag"class="btn btn-outline-secondary">◀</a>
-		<?php
-			for( $i = 1; $i <= $max_page_num; $i++ )
-			{
-		?>
-				<a href="trip_list.php?page_num=<?php echo $i ?>#tag" class="btn btn-outline-secondary"><?php echo $i ?></a>
-		<?php
-			}
-		?>
-			<a href="trip_list.php?page_num=<?php echo $next_page_num ?>#tag"class="btn btn-outline-secondary">▶</a>
+			<?php if(isset($_GET["current"])){ ?>
+				<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>&current=<?php echo $get ?>#tag" class="btn btn-outline-secondary">◀</a>
+				<?php
+					for ($i = 1; $i <= $max_page_num; $i++) {
+				?>
+					<a href="trip_list.php?page_num=<?php echo $i ?>&current=<?php echo $get ?>#tag" class="btn btn-outline-secondary"><?php echo $i ?></a>
+				<?php
+					}
+				?>
+					<a href="trip_list.php?page_num=<?php echo $next_page_num ?>&current=<?php echo $get ?>#tag" class="btn btn-outline-secondary">▶</a>
+			
+			<?php }else{ ?>
+				<a href="trip_list.php?page_num=<?php echo $prev_page_num ?>#tag" class="btn btn-outline-secondary">◀</a>
+				<?php
+					for ($i = 1; $i <= $max_page_num; $i++) {
+				?>
+					<a href="trip_list.php?page_num=<?php echo $i ?>#tag" class="btn btn-outline-secondary"><?php echo $i ?></a>
+				<?php
+					}
+				?>
+					<a href="trip_list.php?page_num=<?php echo $next_page_num ?>#tag" class="btn btn-outline-secondary">▶</a>
+					<?php } ?>
 		</div>
 	</div>
 		<?php include_once( URL_FOOTER ) ?>
